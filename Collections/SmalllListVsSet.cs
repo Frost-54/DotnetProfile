@@ -4,11 +4,13 @@ namespace DotnetProfile.Collections;
 
 [BenchmarkClass("Collections")]
 public class SmallListVsSet {
+      private const int MAX_SIZE = 20;
+
       [ParamsSource(nameof(Sizes))]
       public int Size { get; set; }
 
       public static IEnumerable<int> Sizes() {
-            for (int i = 0; i <= 100; i += 10) {
+            for (int i = 0; i <= MAX_SIZE; i += 10) {
                   yield return i;
             }
       }
