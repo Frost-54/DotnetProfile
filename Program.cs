@@ -8,10 +8,15 @@ public class Program {
             var assembly = Assembly.GetExecutingAssembly();
             
             foreach (var type in assembly.GetTypes()) {
-                  var attribute = type.GetCustomAttribute<BenchmarkAttribute>();
+                  var attribute = type.GetCustomAttribute<BenchmarkClassAttribute>();
 
                   if (attribute is not null) {
-                        BenchmarkRunner.Run(type, new Config(attribute.location));
+                        BenchmarkRunner.Run(type, new Config(attribute.location,
+                                                             type.Name));
+                        var fullName = type.FullName ?? type.Name;
+                        var resultPath = $"{Path.Join(attribute.location, type.Name, "results", fullName)}-report-github.md";
+                        File.Move(resultPath, Path.Join(attribute.location, $"{fullName}.md"), true);
+                        Directory.Delete(Path.Join(attribute.location, type.Name), true);
                   }
             }
       }
