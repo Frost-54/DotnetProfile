@@ -13,6 +13,7 @@ jobs:
      - name: "Run benchmark"
        run: echo "Hello world!" > hi.txt
 
-     - name: Update benchmarks
-       run: git add .
-       run: git origin push
+     - name: Stage updates
+       run: |
+        git add .
+        git origin push
