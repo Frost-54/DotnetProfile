@@ -6,5 +6,6 @@ on:
 
 jobs:
   Run benchmarks:
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Benchmark running!"
