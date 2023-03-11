@@ -14,8 +14,5 @@ jobs:
        run: echo "Hello world!" > hi.txt
 
      - name: Update benchmarks
-       uses: EndBug/add-and-commit@v9
-       with:
-         message: "Update benchmark"
-         add: hi.txt
-
+       run: git add .
+       run: git origin push
