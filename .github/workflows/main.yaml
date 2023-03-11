@@ -15,7 +15,8 @@ jobs:
 
      - name: Update benchmarks
        run: |
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Frost-54/DotnetProfile
-        git checkout "${GITHUB_REF:11}"
+        git config --global user.name "Github Actions"
+        git config --global user.email "Github Actions"
         git add .
+        git commit -m "Update benchmarks"
         git push 
