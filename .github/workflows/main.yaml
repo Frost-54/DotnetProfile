@@ -9,9 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v3
-     - uses: EndBug/add-and-commit@v9
+
+     - name: "Run benchmark"
+       run: echo "Hello world!" > hi.txt
+
+     - name: Update benchmarks
+       uses: EndBug/add-and-commit@v9
        with:
          message: "Update benchmark"
          add: hi.txt
-     - run: echo "Hello world!" > hi.txt
 
