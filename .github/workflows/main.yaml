@@ -8,4 +8,9 @@ jobs:
   RunBenchmarks:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Benchmark running!"
+     - uses: actions/checkout@v3
+     - uses: EndBug/add-and-commit@v9
+       with:
+         message: "Update benchmark"
+     - run: echo "Hello world!" > hi.txt
+
