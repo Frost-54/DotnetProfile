@@ -66,11 +66,13 @@ public class SmallListVsSet {
             }
       }
 
+      [Benchmark]
       [ArgumentsSource(nameof(GetLists))]
       public void FindSpeedOfList(List<int> list, int doesNotExist) {
             list.IndexOf(doesNotExist);
       }
 
+      [Benchmark]
       [ArgumentsSource(nameof(GetSets))]
       public void FindSpeedOfSet(HashSet<int> set, int doesNotExist) {
             set.Contains(doesNotExist);
