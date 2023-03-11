@@ -41,3 +41,5 @@ Each benchmark should have a `BenchmarkClass` attribute, with the location of th
 ```
 
 You *DO NOT* need to include your local benchmark result in your commit. Please delete your local `topic.md` file. Benchmarks are run on Github Actions and the `topic.md` is populated automatically. 
+
+Also, benchmarks should be self-contained. Prefer copy and paste over creating base classes or shared functions.
