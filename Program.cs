@@ -15,7 +15,7 @@ public class Program {
                                                              type.Name));
                         var fullName = type.FullName ?? type.Name;
                         var resultPath = $"{Path.Join(attribute.location, type.Name, "results", fullName)}-report-github.md";
-                        File.Move(resultPath, Path.Join(attribute.location, $"{fullName}.md"), true);
+                        File.Move(resultPath, Path.Join(attribute.location, $"{type.Name}.md"), true);
                         Directory.Delete(Path.Join(attribute.location, type.Name), true);
                   }
             }
