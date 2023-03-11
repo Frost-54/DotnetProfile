@@ -5,7 +5,7 @@ on:
   push
 
 jobs:
-  Run benchmarks:
+  RunBenchmarks:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Benchmark running!"
