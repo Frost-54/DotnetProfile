@@ -8,7 +8,7 @@ public class SmallListVsSet {
       public int Size { get; set; }
 
       public static IEnumerable<int> Sizes() {
-            for (int i = 0; i < 100; i += 10) {
+            for (int i = 0; i <= 100; i += 10) {
                   yield return i;
             }
       }
@@ -27,7 +27,7 @@ public class SmallListVsSet {
       public void InsertSpeedOfList() {
             var list = new List<int>();
 
-            for (int i = 0; i < Size; i++) {
+            for (int i = 0; i <= Size; i++) {
                   list.Add(i);
             }
       }
@@ -36,7 +36,7 @@ public class SmallListVsSet {
       public void InsertSpeedOfSet() {
             var set = new HashSet<int>();
 
-            for (int i = 0; i < Size; i++) {
+            for (int i = 0; i <= Size; i++) {
                   set.Add(i);
             }
       }
@@ -45,7 +45,7 @@ public class SmallListVsSet {
             foreach (var size in Sizes()) {
                   var list = new List<int>(size);
 
-                  for (int i = 0; i < size; i++) {
+                  for (int i = 0; i <= size; i++) {
                         list.Add(i);
                   }
                   yield return new object[] {
@@ -59,7 +59,7 @@ public class SmallListVsSet {
             foreach (var size in Sizes()) {
                   var set = new HashSet<int>(size);
 
-                  for (int i = 0; i < size; i++) {
+                  for (int i = 0; i <= size; i++) {
                         set.Add(i);
                   }
                   yield return set;
