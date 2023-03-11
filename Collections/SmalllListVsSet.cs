@@ -55,14 +55,17 @@ public class SmallListVsSet {
             }
       }
 
-      public static IEnumerable<object> GetSets() {
+      public static IEnumerable<object[]> GetSets() {
             foreach (var size in Sizes()) {
                   var set = new HashSet<int>(size);
 
                   for (int i = 0; i <= size; i++) {
                         set.Add(i);
                   }
-                  yield return set;
+                  yield return new object[] {
+                        set,
+                        size
+                  };
             }
       }
 
