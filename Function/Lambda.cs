@@ -80,13 +80,13 @@ public class Lambda {
       [Arguments(10)]
       [Benchmark]
       public void SumWithLambda(int n) {
-            result = ((Func<int>)(() => {
+            result = ((Func<int, int>)((int n) => {
                   int result = 0;
                   for (int i = 0; i < n; i++) {
                         result += i;
                   }
                   return result;
-            }))();
+            }))(n);
       }
 
       private void UseDelegate(Func<int> func) {
