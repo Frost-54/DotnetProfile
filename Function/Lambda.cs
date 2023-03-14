@@ -2,7 +2,7 @@ using BenchmarkDotNet.Attributes;
 
 namespace DotnetProfile.Function;
 
-[Description("C# lambda expression")]
+[Description("C# lambda expression performance")]
 [BenchmarkClass("Function")]
 public class Lambda {
       private int result = 0;
