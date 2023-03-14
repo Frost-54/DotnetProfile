@@ -64,7 +64,7 @@ public class Program {
 
                   // empty benchmark class
                   if (!File.Exists(resultPath)) {
-                        continue;
+                        goto deleteDir;
                   }
                   var file = Path.Join(attribute.location, $"{type.Name}.md");
 
@@ -79,12 +79,13 @@ public class Program {
                         using var writer = new StreamWriter(stream);
                         
                         stream.SetLength(0);
-                        writer.Write(description);
+                        writer.Write(description.Description);
                         if (description.Description[^1] != '\n') {
                               writer.Write('\n');
                         }
                         writer.Write(File.ReadAllText(resultPath));
                   }
+deleteDir:
                   Directory.Delete(Path.Join(attribute.location, type.Name), true);
             }
       }
