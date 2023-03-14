@@ -2,6 +2,7 @@ using BenchmarkDotNet.Attributes;
 
 namespace DotnetProfile.Collections;
 
+[Description("C# List vs HashSet performance")]
 [BenchmarkClass("Collections")]
 public class SmallListVsSet {
       private const int MAX_SIZE = 20;

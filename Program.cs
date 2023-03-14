@@ -50,22 +50,42 @@ public class Program {
       public static void Main(string[] args) {
             var assembly = Assembly.GetExecutingAssembly();
             var commandLine = ParseCommandLine(args);
-            
+
             foreach (var type in assembly.GetTypes()) {
                   var attribute = type.GetCustomAttribute<BenchmarkClassAttribute>();
 
-                  if (attribute is not null) {
-                        BenchmarkRunner.Run(type, new Config(attribute.location,
-                                                             type.Name));
-                        var fullName = type.FullName ?? type.Name;
-                        var resultPath = $"{Path.Join(attribute.location, type.Name, "results", fullName)}-report-github.md";
-                        var file = Path.Join(attribute.location, $"{type.Name}.md");
-
-                        if (commandLine.ShouldSaveFile(file)) {
-                              File.Move(resultPath, file, true);
-                        }
-                        Directory.Delete(Path.Join(attribute.location, type.Name), true);
+                  if (attribute is null) {
+                        continue;
                   }
+                  BenchmarkRunner.Run(type, new Config(attribute.location,
+                                                            type.Name));
+                  var fullName = type.FullName ?? type.Name;
+                  var resultPath = $"{Path.Join(attribute.location, type.Name, "results", fullName)}-report-github.md";
+
+                  // empty benchmark class
+                  if (!File.Exists(resultPath)) {
+                        continue;
+                  }
+                  var file = Path.Join(attribute.location, $"{type.Name}.md");
+
+                  if (commandLine.ShouldSaveFile(file)) {
+                        var description = type.GetCustomAttribute<DescriptionAttribute>();
+                        
+                        if (description is null || description.Description.Length == 0) {
+                              File.Move(resultPath, file, true);
+                              continue;
+                        }
+                        using var stream = File.Open(file, FileMode.OpenOrCreate);
+                        using var writer = new StreamWriter(stream);
+                        
+                        stream.SetLength(0);
+                        writer.Write(description);
+                        if (description.Description[^1] != '\n') {
+                              writer.Write('\n');
+                        }
+                        writer.Write(File.ReadAllText(resultPath));
+                  }
+                  Directory.Delete(Path.Join(attribute.location, type.Name), true);
             }
       }
 }
