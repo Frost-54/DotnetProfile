@@ -14,6 +14,7 @@ For each topic, a &lt;topic&gt;.md is generated. It contains the benchmark resul
 Here are the benchmarks currently available:
 
 * Collections: Benchmarks related to containers such as List, HashSet, Dictionary
+* Function: Benchmarks related to functions, such as lambda and delegates
 
 ## Adding new benchmarks
 If your topic already exists, simply add a new benchmark in the existing class. 
