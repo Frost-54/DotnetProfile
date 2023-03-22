@@ -28,7 +28,7 @@ public class DictionaryVsImmutable {
 
       [ArgumentsSource(nameof(GetDictionary))]
       [Benchmark]
-      public static void DictionaryPerformance(Dictionary<int, int> dictionary, int next) {
+      public void DictionaryPerformance(Dictionary<int, int> dictionary, int next) {
             dictionary.Add(next, next);
       }
 
@@ -54,7 +54,7 @@ public class DictionaryVsImmutable {
 
       [ArgumentsSource(nameof(GetImmutableDictionary))]
       [Benchmark]
-      public static void ImmutableDictionaryPerformance(ImmutableDictionary<int, int> dictionary, int next) {
+      public void ImmutableDictionaryPerformance(ImmutableDictionary<int, int> dictionary, int next) {
             dictionary.Add(next, next);
       }
 }

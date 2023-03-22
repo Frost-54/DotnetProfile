@@ -6,12 +6,12 @@ namespace DotnetProfile.Reflection;
 [Description("c# Activator.CreateInstance vs new performance")]
 public class ActivatorVsNew {
       [Benchmark]
-      public static void NewObject() {
+      public void NewObject() {
             _ = new object();
       }
 
       [Benchmark]
-      public static void ActivatorCreateObject() {
+      public void ActivatorCreateObject() {
             Activator.CreateInstance<object>();
       }
 
@@ -20,12 +20,12 @@ public class ActivatorVsNew {
       }
 
       [Benchmark]
-      public static void NewCustomObject() {
+      public void NewCustomObject() {
             _ = new Custom();
       }
 
       [Benchmark]
-      public static void ActivatorCreateCustomObject() {
+      public void ActivatorCreateCustomObject() {
             Activator.CreateInstance<Custom>();
       }
 }

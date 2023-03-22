@@ -27,7 +27,7 @@ public class DictionaryPerformance {
 
       [ArgumentsSource(nameof(GetDictionary))]
       [Benchmark]
-      public static void Performance(Dictionary<int, int> dictionary, int next) {
+      public void Performance(Dictionary<int, int> dictionary, int next) {
             dictionary.Add(next, next);
       }
 }

@@ -28,7 +28,7 @@ public class SetVsImmutable {
 
       [ArgumentsSource(nameof(GetSet))]
       [Benchmark]
-      public static void SetPerformance(HashSet<int> set, int next) {
+      public void SetPerformance(HashSet<int> set, int next) {
             set.Add(next);
       }
 
@@ -54,7 +54,7 @@ public class SetVsImmutable {
 
       [ArgumentsSource(nameof(GetImmutableSet))]
       [Benchmark]
-      public static void ImmutableSetPerformance(ImmutableHashSet<int> set, int next) {
+      public void ImmutableSetPerformance(ImmutableHashSet<int> set, int next) {
             set.Add(next);
       }
 }

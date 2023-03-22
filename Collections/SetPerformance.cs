@@ -27,7 +27,7 @@ public class SetPerformance {
 
       [ArgumentsSource(nameof(GetSet))]
       [Benchmark]
-      public static void Performance(HashSet<int> set, int next) {
+      public void Performance(HashSet<int> set, int next) {
             set.Add(next);
       }
 }
