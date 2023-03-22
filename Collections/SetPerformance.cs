@@ -14,7 +14,7 @@ public class SetPerformance {
             return set;
       }
 
-      private static IEnumerable<object[]> GetSet() {
+      public static IEnumerable<object[]> GetSet() {
             return new object[][] {
                   new object[] { MakeSet(0),0 },
                   new object[] { MakeSet(10),10 },

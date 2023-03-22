@@ -15,7 +15,7 @@ public class DictionaryVsImmutable {
             return dict;
       }
 
-      private static IEnumerable<object[]> GetDictionary() {
+      public static IEnumerable<object[]> GetDictionary() {
             return new object[][] {
                   new object[] { MakeDictionary(0),0 },
                   new object[] { MakeDictionary(10),10 },
@@ -41,7 +41,7 @@ public class DictionaryVsImmutable {
             return dict.ToImmutable();
       }
 
-      private static IEnumerable<object[]> GetImmutableDictionary() {
+      public static IEnumerable<object[]> GetImmutableDictionary() {
             return new object[][] {
                   new object[] { MakeImmutableDictionary(0),0 },
                   new object[] { MakeImmutableDictionary(10),10 },

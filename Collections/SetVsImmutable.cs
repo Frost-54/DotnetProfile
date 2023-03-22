@@ -15,7 +15,7 @@ public class SetVsImmutable {
             return set;
       }
 
-      private static IEnumerable<object[]> GetSet() {
+      public static IEnumerable<object[]> GetSet() {
             return new object[][] {
                   new object[] { MakeSet(0),0 },
                   new object[] { MakeSet(10),10 },
@@ -41,7 +41,7 @@ public class SetVsImmutable {
             return set.ToImmutable();
       }
 
-      private static IEnumerable<object[]> GetImmutableSet() {
+      public static IEnumerable<object[]> GetImmutableSet() {
             return new object[][] {
                   new object[] { MakeImmutableSet(0),0 },
                   new object[] { MakeImmutableSet(10),10 },

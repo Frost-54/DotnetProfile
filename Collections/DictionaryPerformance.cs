@@ -14,7 +14,7 @@ public class DictionaryPerformance {
             return dict;
       }
 
-      private static IEnumerable<object[]> GetDictionary() {
+      public static IEnumerable<object[]> GetDictionary() {
             return new object[][] {
                   new object[] { MakeDictionary(0),0 },
                   new object[] { MakeDictionary(10),10 },
