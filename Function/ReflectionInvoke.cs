@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 
 namespace DotnetProfile.Function;
 
-[BenchmarkClass("Reflection")]
+[BenchmarkClass("Function")]
 [Description("c# MethodInfo.Invoke performance")]
 public class ReflectionInvoke {
       private readonly Action function = () => {};
