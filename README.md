@@ -15,6 +15,8 @@ Here are the benchmarks currently available:
 
 * Collections: Benchmarks related to containers such as List, HashSet, Dictionary
 * Function: Benchmarks related to functions, such as lambda and delegates
+* Reflection: Benchmarks related to reflection, such as GetType(), GetMethod()
+* Wrapper: benchmarks about if wrapping a built-in type(such as int, string) will be slower
 
 ## Adding new benchmarks
 If your topic already exists, simply add a new benchmark in the existing class. 
