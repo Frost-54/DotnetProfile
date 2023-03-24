@@ -95,13 +95,13 @@ public class WrapString {
                   .Select(s => s[Random.Shared.Next(s.Length)]).ToArray());
       }
 
-      private static IEnumerable<object> MakeStringData() {
+      public static IEnumerable<object> MakeStringData() {
             for (int i = 10; i < 10000; i *= 10) {
                   yield return MakeString(i);
             }
       }
 
-      private static IEnumerable<object> MakeWrapperData() {
+      public static IEnumerable<object> MakeWrapperData() {
             for (int i = 10; i < 10000; i *= 10) {
                   yield return new Wrapper(MakeString(i));
             }
