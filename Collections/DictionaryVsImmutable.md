@@ -2,34 +2,32 @@ C# immutable dictionary vs dictionary performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon Platinum 8171M CPU 2.60GHz, 1 CPU, 2 logical and 2 physical cores
+Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 .NET SDK=7.0.202
-  [Host]   : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
-  ShortRun : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
+  [Host]     : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
+  DefaultJob : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
 
-Job=ShortRun  IterationCount=3  LaunchCount=1  
-WarmupCount=3  
 
 ```
-|                         Method |           dictionary |  next |       Mean |     Error |   StdDev |   Gen0 | Allocated |
-|------------------------------- |--------------------- |------ |-----------:|----------:|---------:|-------:|----------:|
-|          **DictionaryPerformance** | **Syste(...)nt32] [66]** |     **0** |         **NA** |        **NA** |       **NA** |      **-** |         **-** |
-|          **DictionaryPerformance** | **Syste(...)nt32] [66]** |    **10** |         **NA** |        **NA** |       **NA** |      **-** |         **-** |
-|          **DictionaryPerformance** | **Syste(...)nt32] [66]** |   **100** |         **NA** |        **NA** |       **NA** |      **-** |         **-** |
-|          **DictionaryPerformance** | **Syste(...)nt32] [66]** |  **1000** |         **NA** |        **NA** |       **NA** |      **-** |         **-** |
-|          DictionaryPerformance | Syste(...)nt32] [66] |  1000 |         NA |        NA |       NA |      - |         - |
-|          **DictionaryPerformance** | **Syste(...)nt32] [66]** | **10000** |         **NA** |        **NA** |       **NA** |      **-** |         **-** |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |     **0** |   **122.7 ns** |  **10.77 ns** |  **0.59 ns** | **0.0050** |      **96 B** |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |    **10** |   **457.5 ns** |  **29.34 ns** |  **1.61 ns** | **0.0167** |     **320 B** |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |   **100** |   **719.5 ns** |  **74.85 ns** |  **4.10 ns** | **0.0257** |     **488 B** |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |  **1000** |   **929.0 ns** |  **84.63 ns** |  **4.64 ns** | **0.0343** |     **656 B** |
-| ImmutableDictionaryPerformance | Syste(...)nt32] [77] |  1000 |   919.6 ns | 134.81 ns |  7.39 ns | 0.0343 |     656 B |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** | **10000** | **1,469.2 ns** | **592.67 ns** | **32.49 ns** | **0.0458** |     **880 B** |
+|                         Method |           dictionary |  next |        Mean |    Error |   StdDev |   Gen0 | Allocated |
+|------------------------------- |--------------------- |------ |------------:|---------:|---------:|-------:|----------:|
+|          **DictionaryPerformance** | **Syste(...)nt32] [66]** |     **0** |          **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|          **DictionaryPerformance** | **Syste(...)nt32] [66]** |    **10** |          **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|          **DictionaryPerformance** | **Syste(...)nt32] [66]** |   **100** |          **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|          **DictionaryPerformance** | **Syste(...)nt32] [66]** |  **1000** |          **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|          DictionaryPerformance | Syste(...)nt32] [66] |  1000 |          NA |       NA |       NA |      - |         - |
+|          **DictionaryPerformance** | **Syste(...)nt32] [66]** | **10000** |          **NA** |       **NA** |       **NA** |      **-** |         **-** |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |     **0** |    **98.92 ns** | **0.466 ns** | **0.436 ns** | **0.0038** |      **96 B** |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |    **10** |   **356.94 ns** | **1.161 ns** | **1.086 ns** | **0.0124** |     **320 B** |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |   **100** |   **534.34 ns** | **2.166 ns** | **1.920 ns** | **0.0191** |     **488 B** |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |  **1000** |   **698.89 ns** | **2.219 ns** | **2.075 ns** | **0.0257** |     **656 B** |
+| ImmutableDictionaryPerformance | Syste(...)nt32] [77] |  1000 |   740.73 ns | 2.961 ns | 2.770 ns | 0.0257 |     656 B |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** | **10000** | **1,030.67 ns** | **6.631 ns** | **6.203 ns** | **0.0343** |     **880 B** |
 
 Benchmarks with issues:
-  DictionaryVsImmutable.DictionaryPerformance: ShortRun(IterationCount=3, LaunchCount=1, WarmupCount=3) [dictionary=Syste(...)nt32] [66], next=0]
-  DictionaryVsImmutable.DictionaryPerformance: ShortRun(IterationCount=3, LaunchCount=1, WarmupCount=3) [dictionary=Syste(...)nt32] [66], next=10]
-  DictionaryVsImmutable.DictionaryPerformance: ShortRun(IterationCount=3, LaunchCount=1, WarmupCount=3) [dictionary=Syste(...)nt32] [66], next=100]
-  DictionaryVsImmutable.DictionaryPerformance: ShortRun(IterationCount=3, LaunchCount=1, WarmupCount=3) [dictionary=Syste(...)nt32] [66], next=1000]
-  DictionaryVsImmutable.DictionaryPerformance: ShortRun(IterationCount=3, LaunchCount=1, WarmupCount=3) [dictionary=Syste(...)nt32] [66], next=1000]
-  DictionaryVsImmutable.DictionaryPerformance: ShortRun(IterationCount=3, LaunchCount=1, WarmupCount=3) [dictionary=Syste(...)nt32] [66], next=10000]
+  DictionaryVsImmutable.DictionaryPerformance: DefaultJob [dictionary=Syste(...)nt32] [66], next=0]
+  DictionaryVsImmutable.DictionaryPerformance: DefaultJob [dictionary=Syste(...)nt32] [66], next=10]
+  DictionaryVsImmutable.DictionaryPerformance: DefaultJob [dictionary=Syste(...)nt32] [66], next=100]
+  DictionaryVsImmutable.DictionaryPerformance: DefaultJob [dictionary=Syste(...)nt32] [66], next=1000]
+  DictionaryVsImmutable.DictionaryPerformance: DefaultJob [dictionary=Syste(...)nt32] [66], next=1000]
+  DictionaryVsImmutable.DictionaryPerformance: DefaultJob [dictionary=Syste(...)nt32] [66], next=10000]

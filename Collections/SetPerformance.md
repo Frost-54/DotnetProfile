@@ -2,20 +2,18 @@ C# HashSet performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon Platinum 8171M CPU 2.60GHz, 1 CPU, 2 logical and 2 physical cores
+Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 .NET SDK=7.0.202
-  [Host]   : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
-  ShortRun : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
+  [Host]     : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
+  DefaultJob : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
 
-Job=ShortRun  IterationCount=3  LaunchCount=1  
-WarmupCount=3  
 
 ```
-|      Method |                  set |  next |     Mean |      Error |    StdDev | Allocated |
-|------------ |--------------------- |------ |---------:|-----------:|----------:|----------:|
-| **Performance** | **Syste(...)nt32] [50]** |     **0** | **6.595 ns** |  **0.4803 ns** | **0.0263 ns** |         **-** |
-| **Performance** | **Syste(...)nt32] [50]** |    **10** | **6.660 ns** |  **0.7306 ns** | **0.0400 ns** |         **-** |
-| **Performance** | **Syste(...)nt32] [50]** |   **100** | **7.029 ns** | **10.5735 ns** | **0.5796 ns** |         **-** |
-| **Performance** | **Syste(...)nt32] [50]** |  **1000** | **6.963 ns** |  **8.6613 ns** | **0.4748 ns** |         **-** |
-| Performance | Syste(...)nt32] [50] |  1000 | 6.765 ns |  6.0402 ns | 0.3311 ns |         - |
-| **Performance** | **Syste(...)nt32] [50]** | **10000** | **6.660 ns** |  **0.3615 ns** | **0.0198 ns** |         **-** |
+|      Method |                  set |  next |     Mean |     Error |    StdDev | Allocated |
+|------------ |--------------------- |------ |---------:|----------:|----------:|----------:|
+| **Performance** | **Syste(...)nt32] [50]** |     **0** | **4.559 ns** | **0.0441 ns** | **0.0391 ns** |         **-** |
+| **Performance** | **Syste(...)nt32] [50]** |    **10** | **4.561 ns** | **0.0080 ns** | **0.0066 ns** |         **-** |
+| **Performance** | **Syste(...)nt32] [50]** |   **100** | **4.586 ns** | **0.0557 ns** | **0.0493 ns** |         **-** |
+| **Performance** | **Syste(...)nt32] [50]** |  **1000** | **4.532 ns** | **0.0231 ns** | **0.0216 ns** |         **-** |
+| Performance | Syste(...)nt32] [50] |  1000 | 4.520 ns | 0.0094 ns | 0.0079 ns |         - |
+| **Performance** | **Syste(...)nt32] [50]** | **10000** | **4.540 ns** | **0.0445 ns** | **0.0394 ns** |         **-** |
