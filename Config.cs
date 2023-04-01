@@ -13,7 +13,6 @@ public class Config : ManualConfig {
             AddDiagnoser(new IDiagnoser[] {
                   new MemoryDiagnoser(new MemoryDiagnoserConfig()),
             });
-            AddJob(Job.ShortRun);
             AddLogger(new ConsoleLogger());
             AddColumnProvider(DefaultColumnProviders.Instance);
             ArtifactsPath = Path.Join(artifactPath, name);
