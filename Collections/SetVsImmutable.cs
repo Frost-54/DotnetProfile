@@ -28,8 +28,32 @@ public class SetVsImmutable {
 
       [ArgumentsSource(nameof(GetSet))]
       [Benchmark]
-      public void SetPerformance(HashSet<int> set, int next) {
+      public void SetAdd(HashSet<int> set, int next) {
             set.Add(next);
+      }
+
+      [ArgumentsSource(nameof(GetSet))]
+      [Benchmark]
+      public bool SetFindExisting(HashSet<int> set, int next) {
+            return set.Contains(next - 1);
+      }
+
+      [ArgumentsSource(nameof(GetSet))]
+      [Benchmark]
+      public bool SetFindNonexisting(HashSet<int> set, int next) {
+            return set.Contains(next);
+      }
+
+      [ArgumentsSource(nameof(GetSet))]
+      [Benchmark]
+      public void SetRemoveNonexisting(HashSet<int> set, int next) {
+            set.Remove(next);
+      }
+
+      [ArgumentsSource(nameof(GetSet))]
+      [Benchmark]
+      public void SetRemoveExisting(HashSet<int> set, int next) {
+            set.Remove(next - 1);
       }
 
       private static ImmutableHashSet<int> MakeImmutableSet(int size) {
@@ -54,7 +78,31 @@ public class SetVsImmutable {
 
       [ArgumentsSource(nameof(GetImmutableSet))]
       [Benchmark]
-      public void ImmutableSetPerformance(ImmutableHashSet<int> set, int next) {
+      public void ImmutableSetAdd(ImmutableHashSet<int> set, int next) {
             set.Add(next);
+      }
+
+      [ArgumentsSource(nameof(GetImmutableSet))]
+      [Benchmark]
+      public bool ImmutableSetFindExisting(ImmutableHashSet<int> set, int next) {
+            return set.Contains(next - 1);
+      }
+
+      [ArgumentsSource(nameof(GetImmutableSet))]
+      [Benchmark]
+      public bool ImmutableSetFindNonexisting(ImmutableHashSet<int> set, int next) {
+            return set.Contains(next);
+      }
+
+      [ArgumentsSource(nameof(GetImmutableSet))]
+      [Benchmark]
+      public void ImmutableSetRemoveNonexisting(ImmutableHashSet<int> set, int next) {
+            set.Remove(next);
+      }
+
+      [ArgumentsSource(nameof(GetImmutableSet))]
+      [Benchmark]
+      public void ImmutableSetRemoveExisting(ImmutableHashSet<int> set, int next) {
+            set.Remove(next - 1);
       }
 }
