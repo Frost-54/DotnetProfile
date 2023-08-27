@@ -6,12 +6,11 @@ namespace DotnetProfile.Collections;
 [Description("C# ListDictionary vs Dictionary")]
 [BenchmarkClass("Collections")]
 public class SmallListDictionaryVsDictionary {
-      private IEnumerable<object> GetDictionary() {
-            int n = 0;
+      private IEnumerable<object[]> GetDictionary() {
             Span<int> sizes = stackalloc int[] {
                   2, 4, 6, 8, 10
             };
-            var dicts = new object[sizes.Length];
+            var dicts = new List<object[]>();
 
             foreach (var size in sizes) {
                   var dictionary = new Dictionary<int, int>(size);
@@ -19,19 +18,33 @@ public class SmallListDictionaryVsDictionary {
                   for (int i = 0; i < size; i++) {
                         dictionary.Add(i, i);
                   }
-                  dicts[n++] = dictionary;
+                  dicts.Add(new object[] {
+                        dictionary,
+                        size
+                  });
             }
 
             return dicts;
       }
 
-      private static ListDictionary GetListDictionary(int size) {
-            var dict = new ListDictionary();
+      private static IEnumerable<object[]> GetListDictionary() {
+            Span<int> sizes = stackalloc int[] {
+                  2, 4, 6, 8, 10
+            };
+            var dicts = new List<object[]>();
 
-            for (int i = 0; i < size; i++) {
-                  dict.Add(i, i);
+            foreach (var size in sizes) {
+                  var dict = new ListDictionary();
+
+                  for (int i = 0; i < size; i++) {
+                        dict.Add(i, i);
+                  }
+                  dicts.Add(new object[] {
+                        dict,
+                        size
+                  });
             }
-            return dict;
+            return dicts;
       }
 
       [ArgumentsSource(nameof(GetDictionary))]
