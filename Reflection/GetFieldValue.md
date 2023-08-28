@@ -1,4 +1,4 @@
-c# StackTrace performance
+C# FieldInfo.GetValue performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
@@ -9,6 +9,6 @@ Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 
 
 ```
-|      Method |     Mean |    Error |   StdDev |   Gen0 | Allocated |
-|------------ |---------:|---------:|---------:|-------:|----------:|
-| Performance | 10.47 μs | 0.014 μs | 0.013 μs | 0.1678 |    4.2 KB |
+|   Method |     Mean |    Error |   StdDev |   Gen0 | Allocated |
+|--------- |---------:|---------:|---------:|-------:|----------:|
+| GetValue | 72.38 ns | 0.153 ns | 0.143 ns | 0.0010 |      24 B |

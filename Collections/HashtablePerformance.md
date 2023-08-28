@@ -2,57 +2,57 @@ C# Hashtable performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon Platinum 8272CL CPU 2.60GHz, 1 CPU, 2 logical and 2 physical cores
-.NET SDK=7.0.202
-  [Host]     : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
-  DefaultJob : .NET 6.0.15 (6.0.1523.11507), X64 RyuJIT AVX2
+Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
+.NET SDK=7.0.400
+  [Host]     : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
+  DefaultJob : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
 
 
 ```
-|                 Method |            hashtable |     a |    b |  next | last |     Mean |    Error |   StdDev |   Gen0 | Allocated |
-|----------------------- |--------------------- |------ |----- |------ |----- |---------:|---------:|---------:|-------:|----------:|
-|    **TryGetExistingValue** | **Syste(...)table [28]** |     **0** |   **-1** |     **?** |    **?** | **22.41 ns** | **0.359 ns** | **0.336 ns** | **0.0013** |      **24 B** |
-|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** |     **0** |   **-1** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |     0 |   -1 | 19.67 ns | 0.016 ns | 0.015 ns |      - |         - |
-|                 Update | Syste(...)table [28] |     ? |    ? |     0 |   -1 | 19.62 ns | 0.013 ns | 0.012 ns |      - |         - |
-| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |     0 |   -1 | 15.64 ns | 0.004 ns | 0.004 ns |      - |         - |
-|         RemoveExisting | Syste(...)table [28] |     ? |    ? |     0 |   -1 | 22.16 ns | 0.003 ns | 0.003 ns |      - |         - |
-|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |     0 |   -1 | 23.04 ns | 0.013 ns | 0.012 ns |      - |         - |
-|    **TryGetExistingValue** | **Syste(...)table [28]** |    **10** |    **9** |     **?** |    **?** | **28.53 ns** | **0.407 ns** | **0.381 ns** | **0.0013** |      **24 B** |
-|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** |    **10** |    **9** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |    10 |    9 | 19.66 ns | 0.048 ns | 0.045 ns |      - |         - |
-|                 Update | Syste(...)table [28] |     ? |    ? |    10 |    9 | 25.11 ns | 0.279 ns | 0.233 ns |      - |         - |
-| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |    10 |    9 | 15.65 ns | 0.003 ns | 0.002 ns |      - |         - |
-|         RemoveExisting | Syste(...)table [28] |     ? |    ? |    10 |    9 | 22.19 ns | 0.004 ns | 0.003 ns |      - |         - |
-|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |    10 |    9 | 22.19 ns | 0.003 ns | 0.002 ns |      - |         - |
-|    **TryGetExistingValue** | **Syste(...)table [28]** |   **100** |   **99** |     **?** |    **?** | **28.35 ns** | **0.341 ns** | **0.319 ns** | **0.0013** |      **24 B** |
-|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** |   **100** |   **99** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |   100 |   99 | 19.65 ns | 0.019 ns | 0.018 ns |      - |         - |
-|                 Update | Syste(...)table [28] |     ? |    ? |   100 |   99 | 24.80 ns | 0.051 ns | 0.048 ns |      - |         - |
-| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |   100 |   99 | 15.62 ns | 0.003 ns | 0.002 ns |      - |         - |
-|         RemoveExisting | Syste(...)table [28] |     ? |    ? |   100 |   99 | 22.19 ns | 0.004 ns | 0.003 ns |      - |         - |
-|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |   100 |   99 | 22.19 ns | 0.003 ns | 0.003 ns |      - |         - |
-|    **TryGetExistingValue** | **Syste(...)table [28]** |  **1000** |  **999** |     **?** |    **?** | **28.34 ns** | **0.443 ns** | **0.392 ns** | **0.0013** |      **24 B** |
-|    TryGetExistingValue | Syste(...)table [28] |  1000 |  999 |     ? |    ? | 28.02 ns | 0.495 ns | 0.463 ns | 0.0013 |      24 B |
-|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** |  **1000** |  **999** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
-|                    Add | Syste(...)table [28] |     ? |    ? |  1000 |  999 |       NA |       NA |       NA |      - |         - |
-|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 19.58 ns | 0.045 ns | 0.043 ns |      - |         - |
-|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 19.58 ns | 0.019 ns | 0.018 ns |      - |         - |
-|                 Update | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 25.15 ns | 0.042 ns | 0.037 ns |      - |         - |
-|                 Update | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 24.76 ns | 0.040 ns | 0.035 ns |      - |         - |
-| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 15.61 ns | 0.006 ns | 0.005 ns |      - |         - |
-| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 15.51 ns | 0.008 ns | 0.007 ns |      - |         - |
-|         RemoveExisting | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 22.19 ns | 0.001 ns | 0.001 ns |      - |         - |
-|         RemoveExisting | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 22.20 ns | 0.001 ns | 0.001 ns |      - |         - |
-|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 22.36 ns | 0.002 ns | 0.001 ns |      - |         - |
-|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 22.19 ns | 0.002 ns | 0.002 ns |      - |         - |
-|    **TryGetExistingValue** | **Syste(...)table [28]** | **10000** | **9999** |     **?** |    **?** | **27.90 ns** | **0.404 ns** | **0.378 ns** | **0.0013** |      **24 B** |
-|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** | **10000** | **9999** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? | 10000 | 9999 | 19.56 ns | 0.017 ns | 0.016 ns |      - |         - |
-|                 Update | Syste(...)table [28] |     ? |    ? | 10000 | 9999 | 24.77 ns | 0.046 ns | 0.043 ns |      - |         - |
-| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? | 10000 | 9999 | 15.51 ns | 0.005 ns | 0.005 ns |      - |         - |
-|         RemoveExisting | Syste(...)table [28] |     ? |    ? | 10000 | 9999 | 21.52 ns | 0.003 ns | 0.003 ns |      - |         - |
-|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? | 10000 | 9999 | 22.11 ns | 0.213 ns | 0.199 ns |      - |         - |
+|                 Method |            hashtable |     a |    b |  next | last |      Mean |     Error |    StdDev |   Gen0 | Allocated |
+|----------------------- |--------------------- |------ |----- |------ |----- |----------:|----------:|----------:|-------:|----------:|
+|    **TryGetExistingValue** | **Syste(...)table [28]** |     **0** |   **-1** |     **?** |    **?** | **18.054 ns** | **0.2133 ns** | **0.1891 ns** | **0.0010** |      **24 B** |
+|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** |     **0** |   **-1** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |     0 |   -1 | 14.809 ns | 0.0287 ns | 0.0255 ns |      - |         - |
+|                 Update | Syste(...)table [28] |     ? |    ? |     0 |   -1 | 14.795 ns | 0.0266 ns | 0.0249 ns |      - |         - |
+| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |     0 |   -1 | 10.095 ns | 0.0303 ns | 0.0284 ns |      - |         - |
+|         RemoveExisting | Syste(...)table [28] |     ? |    ? |     0 |   -1 |  8.817 ns | 0.0269 ns | 0.0252 ns |      - |         - |
+|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |     0 |   -1 | 10.850 ns | 0.0568 ns | 0.0531 ns |      - |         - |
+|    **TryGetExistingValue** | **Syste(...)table [28]** |    **10** |    **9** |     **?** |    **?** | **23.393 ns** | **0.1097 ns** | **0.1027 ns** | **0.0010** |      **24 B** |
+|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** |    **10** |    **9** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |    10 |    9 | 14.807 ns | 0.0260 ns | 0.0243 ns |      - |         - |
+|                 Update | Syste(...)table [28] |     ? |    ? |    10 |    9 | 19.234 ns | 0.0570 ns | 0.0533 ns |      - |         - |
+| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |    10 |    9 | 10.099 ns | 0.0362 ns | 0.0302 ns |      - |         - |
+|         RemoveExisting | Syste(...)table [28] |     ? |    ? |    10 |    9 | 11.697 ns | 0.0519 ns | 0.0486 ns |      - |         - |
+|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |    10 |    9 |  8.744 ns | 0.0768 ns | 0.0681 ns |      - |         - |
+|    **TryGetExistingValue** | **Syste(...)table [28]** |   **100** |   **99** |     **?** |    **?** | **22.993 ns** | **0.0966 ns** | **0.0904 ns** | **0.0010** |      **24 B** |
+|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** |   **100** |   **99** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |   100 |   99 | 14.806 ns | 0.0231 ns | 0.0216 ns |      - |         - |
+|                 Update | Syste(...)table [28] |     ? |    ? |   100 |   99 | 19.332 ns | 0.0341 ns | 0.0302 ns |      - |         - |
+| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |   100 |   99 | 10.083 ns | 0.0273 ns | 0.0228 ns |      - |         - |
+|         RemoveExisting | Syste(...)table [28] |     ? |    ? |   100 |   99 |  8.863 ns | 0.0797 ns | 0.0745 ns |      - |         - |
+|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |   100 |   99 |  8.864 ns | 0.0636 ns | 0.0595 ns |      - |         - |
+|    **TryGetExistingValue** | **Syste(...)table [28]** |  **1000** |  **999** |     **?** |    **?** | **21.888 ns** | **0.0914 ns** | **0.0811 ns** | **0.0010** |      **24 B** |
+|    TryGetExistingValue | Syste(...)table [28] |  1000 |  999 |     ? |    ? | 23.297 ns | 0.1665 ns | 0.1558 ns | 0.0010 |      24 B |
+|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** |  **1000** |  **999** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
+|                    Add | Syste(...)table [28] |     ? |    ? |  1000 |  999 |        NA |        NA |        NA |      - |         - |
+|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 14.713 ns | 0.0268 ns | 0.0250 ns |      - |         - |
+|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 14.786 ns | 0.0442 ns | 0.0414 ns |      - |         - |
+|                 Update | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 19.275 ns | 0.0638 ns | 0.0597 ns |      - |         - |
+|                 Update | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 19.189 ns | 0.0614 ns | 0.0545 ns |      - |         - |
+| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 10.030 ns | 0.0369 ns | 0.0345 ns |      - |         - |
+| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? |  1000 |  999 | 10.391 ns | 0.0322 ns | 0.0302 ns |      - |         - |
+|         RemoveExisting | Syste(...)table [28] |     ? |    ? |  1000 |  999 |  8.739 ns | 0.0219 ns | 0.0205 ns |      - |         - |
+|         RemoveExisting | Syste(...)table [28] |     ? |    ? |  1000 |  999 |  8.906 ns | 0.0619 ns | 0.0579 ns |      - |         - |
+|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |  1000 |  999 |  8.804 ns | 0.0296 ns | 0.0262 ns |      - |         - |
+|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? |  1000 |  999 |  8.863 ns | 0.0686 ns | 0.0642 ns |      - |         - |
+|    **TryGetExistingValue** | **Syste(...)table [28]** | **10000** | **9999** |     **?** |    **?** | **24.934 ns** | **0.1231 ns** | **0.1028 ns** | **0.0010** |      **24 B** |
+|                    **Add** | **Syste(...)table [28]** |     **?** |    **?** | **10000** | **9999** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)table [28] |     ? |    ? | 10000 | 9999 | 15.154 ns | 0.0104 ns | 0.0097 ns |      - |         - |
+|                 Update | Syste(...)table [28] |     ? |    ? | 10000 | 9999 | 18.830 ns | 0.0724 ns | 0.0604 ns |      - |         - |
+| TryGetNonExistingValue | Syste(...)table [28] |     ? |    ? | 10000 | 9999 | 10.326 ns | 0.0223 ns | 0.0197 ns |      - |         - |
+|         RemoveExisting | Syste(...)table [28] |     ? |    ? | 10000 | 9999 | 10.303 ns | 0.0091 ns | 0.0085 ns |      - |         - |
+|      RemoveNonExisting | Syste(...)table [28] |     ? |    ? | 10000 | 9999 |  8.909 ns | 0.0520 ns | 0.0486 ns |      - |         - |
 
 Benchmarks with issues:
   HashtablePerformance.Add: DefaultJob [hashtable=Syste(...)table [28], next=0, last=-1]
