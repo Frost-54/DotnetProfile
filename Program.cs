@@ -26,9 +26,7 @@ public class Program {
             bool saveAllFile = false;
             var savePatterns = new List<string>();
 
-            for (int i = 0; i < args.Length; i++) {
-                  var arg = args[i];
-
+            foreach (var arg in args) {
                   if (arg == "--save-all-file") {
                         saveAllFile = true;
                   }
@@ -85,8 +83,12 @@ public class Program {
                         }
                         writer.Write(File.ReadAllText(resultPath));
                   }
+
 deleteDir:
-                  Directory.Delete(Path.Join(attribute.location, type.Name), true);
+                  var path = Path.Join(attribute.location, type.Name);
+                  if (Directory.Exists(path)) {
+                        Directory.Delete(path, true);
+                  } 
             }
       }
 }
