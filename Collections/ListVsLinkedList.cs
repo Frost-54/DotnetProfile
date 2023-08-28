@@ -6,12 +6,19 @@ namespace DotnetProfile.Collections;
 [BenchmarkClass("Collections")]
 public class ListVsLinkedList {
       [Params(10, 100, 1000, 10000)]
-      public int Count { get; set; }
-      public int Value { get; set; } = Random.Shared.Next();
+      public int Count { get; }
 
-      public readonly List<int> numberList = Enumerable.Range(0, 10001).ToList();
-      public readonly LinkedList<int> numberLinkedList = new(Enumerable.Range(0, 10001));
+      private int Value { get; } = Random.Shared.Next();
 
+      private List<int> numberList = Enumerable.Range(0, 10001).ToList();
+      private LinkedList<int> numberLinkedList = new(Enumerable.Range(0, 10001));
+
+      [IterationSetup]
+      public void Setup() {
+            numberList = Enumerable.Range(0, 10001).ToList();
+            numberLinkedList = new(Enumerable.Range(0, 10001));
+      }
+      
       [Benchmark]
       public List<int> ListCreation() {
             var list = new List<int>();
