@@ -6,7 +6,7 @@ namespace DotnetProfile.Collections;
 [BenchmarkClass("Collections")]
 public class ListVsLinkedList {
       [Params(10, 100, 1000, 10000)]
-      public int Count { get; }
+      public int Count { get; set; }
 
       private int Value { get; } = Random.Shared.Next();
 
