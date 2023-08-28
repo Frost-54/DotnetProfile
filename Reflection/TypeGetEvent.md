@@ -2,7 +2,7 @@ c# Type.GetEvent performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
+Intel Xeon CPU E5-2673 v4 2.30GHz, 1 CPU, 2 logical and 2 physical cores
 .NET SDK=7.0.400
   [Host]     : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
   DefaultJob : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
@@ -11,4 +11,4 @@ Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 ```
 |      Method |     Mean |    Error |   StdDev | Allocated |
 |------------ |---------:|---------:|---------:|----------:|
-| Performance | 20.51 ns | 0.012 ns | 0.011 ns |         - |
+| Performance | 25.12 ns | 0.492 ns | 0.436 ns |         - |

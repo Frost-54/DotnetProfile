@@ -2,78 +2,78 @@ C# HybridDictionary performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
+Intel Xeon CPU E5-2673 v4 2.30GHz, 1 CPU, 2 logical and 2 physical cores
 .NET SDK=7.0.400
   [Host]     : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
   DefaultJob : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
 
 
 ```
-|                 Method |           dictionary |     _ |  next |      Mean |     Error |    StdDev |   Gen0 | Allocated |
-|----------------------- |--------------------- |------ |------ |----------:|----------:|----------:|-------:|----------:|
-|    **TryGetExistingValue** | **Syste(...)onary [47]** |     **0** |     **?** |  **8.119 ns** | **0.1329 ns** | **0.1243 ns** | **0.0010** |      **24 B** |
-|                    **Add** | **Syste(...)onary [47]** |     **?** |     **0** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)onary [47] |     ? |     0 | 24.629 ns | 0.2785 ns | 0.2605 ns | 0.0019 |      48 B |
-|                 Update | Syste(...)onary [47] |     ? |     0 | 24.415 ns | 0.3919 ns | 0.3474 ns | 0.0019 |      48 B |
-| TryGetNonExistingValue | Syste(...)onary [47] |     ? |     0 | 10.694 ns | 0.1315 ns | 0.1230 ns | 0.0010 |      24 B |
-|         RemoveExisting | Syste(...)onary [47] |     ? |     0 | 10.716 ns | 0.1661 ns | 0.1554 ns | 0.0010 |      24 B |
-|      RemoveNonExisting | Syste(...)onary [47] |     ? |     0 |  9.313 ns | 0.2097 ns | 0.1961 ns | 0.0010 |      24 B |
-|    **TryGetExistingValue** | **Syste(...)onary [47]** |    **10** |     **?** | **20.707 ns** | **0.1059 ns** | **0.0991 ns** | **0.0010** |      **24 B** |
-|                    **Add** | **Syste(...)onary [47]** |     **?** |    **10** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)onary [47] |     ? |    10 | 34.640 ns | 0.2246 ns | 0.2101 ns | 0.0019 |      48 B |
-|                 Update | Syste(...)onary [47] |     ? |    10 | 33.550 ns | 0.2445 ns | 0.2287 ns | 0.0019 |      48 B |
-| TryGetNonExistingValue | Syste(...)onary [47] |     ? |    10 | 14.812 ns | 0.3540 ns | 0.3788 ns | 0.0010 |      24 B |
-|         RemoveExisting | Syste(...)onary [47] |     ? |    10 | 16.823 ns | 0.1309 ns | 0.1224 ns | 0.0010 |      24 B |
-|      RemoveNonExisting | Syste(...)onary [47] |     ? |    10 | 16.335 ns | 0.1759 ns | 0.1646 ns | 0.0010 |      24 B |
-|    **TryGetExistingValue** | **Syste(...)onary [47]** |    **20** |     **?** | **23.797 ns** | **0.0550 ns** | **0.0488 ns** | **0.0010** |      **24 B** |
-|                    **Add** | **Syste(...)onary [47]** |     **?** |    **20** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)onary [47] |     ? |    20 | 34.153 ns | 0.3293 ns | 0.3080 ns | 0.0019 |      48 B |
-|                 Update | Syste(...)onary [47] |     ? |    20 | 34.196 ns | 0.2870 ns | 0.2684 ns | 0.0019 |      48 B |
-| TryGetNonExistingValue | Syste(...)onary [47] |     ? |    20 | 14.542 ns | 0.1490 ns | 0.1321 ns | 0.0010 |      24 B |
-|         RemoveExisting | Syste(...)onary [47] |     ? |    20 | 16.392 ns | 0.1584 ns | 0.1482 ns | 0.0010 |      24 B |
-|      RemoveNonExisting | Syste(...)onary [47] |     ? |    20 | 16.118 ns | 0.1335 ns | 0.1183 ns | 0.0010 |      24 B |
-|    **TryGetExistingValue** | **Syste(...)onary [47]** |    **40** |     **?** | **22.649 ns** | **0.1076 ns** | **0.0840 ns** | **0.0010** |      **24 B** |
-|                    **Add** | **Syste(...)onary [47]** |     **?** |    **40** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)onary [47] |     ? |    40 | 34.598 ns | 0.4982 ns | 0.4660 ns | 0.0019 |      48 B |
-|                 Update | Syste(...)onary [47] |     ? |    40 | 33.262 ns | 0.2484 ns | 0.2202 ns | 0.0019 |      48 B |
-| TryGetNonExistingValue | Syste(...)onary [47] |     ? |    40 | 15.846 ns | 0.1411 ns | 0.1250 ns | 0.0010 |      24 B |
-|         RemoveExisting | Syste(...)onary [47] |     ? |    40 | 16.571 ns | 0.1741 ns | 0.1629 ns | 0.0010 |      24 B |
-|      RemoveNonExisting | Syste(...)onary [47] |     ? |    40 | 16.384 ns | 0.1821 ns | 0.1703 ns | 0.0010 |      24 B |
-|    **TryGetExistingValue** | **Syste(...)onary [47]** |    **80** |     **?** | **22.463 ns** | **0.1625 ns** | **0.1441 ns** | **0.0010** |      **24 B** |
-|                    **Add** | **Syste(...)onary [47]** |     **?** |    **80** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)onary [47] |     ? |    80 | 34.414 ns | 0.2701 ns | 0.2527 ns | 0.0019 |      48 B |
-|                 Update | Syste(...)onary [47] |     ? |    80 | 34.138 ns | 0.3621 ns | 0.3387 ns | 0.0019 |      48 B |
-| TryGetNonExistingValue | Syste(...)onary [47] |     ? |    80 | 14.394 ns | 0.1373 ns | 0.1146 ns | 0.0010 |      24 B |
-|         RemoveExisting | Syste(...)onary [47] |     ? |    80 | 16.216 ns | 0.1300 ns | 0.1216 ns | 0.0010 |      24 B |
-|      RemoveNonExisting | Syste(...)onary [47] |     ? |    80 | 16.389 ns | 0.1251 ns | 0.1171 ns | 0.0010 |      24 B |
-|    **TryGetExistingValue** | **Syste(...)onary [47]** |   **100** |     **?** | **20.723 ns** | **0.1069 ns** | **0.1000 ns** | **0.0010** |      **24 B** |
-|                    **Add** | **Syste(...)onary [47]** |     **?** |   **100** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)onary [47] |     ? |   100 | 34.888 ns | 0.2521 ns | 0.2358 ns | 0.0019 |      48 B |
-|                 Update | Syste(...)onary [47] |     ? |   100 | 33.644 ns | 0.2231 ns | 0.2087 ns | 0.0019 |      48 B |
-| TryGetNonExistingValue | Syste(...)onary [47] |     ? |   100 | 16.173 ns | 0.3171 ns | 0.2966 ns | 0.0010 |      24 B |
-|         RemoveExisting | Syste(...)onary [47] |     ? |   100 | 16.531 ns | 0.1993 ns | 0.1864 ns | 0.0010 |      24 B |
-|      RemoveNonExisting | Syste(...)onary [47] |     ? |   100 | 16.390 ns | 0.1549 ns | 0.1449 ns | 0.0010 |      24 B |
-|    **TryGetExistingValue** | **Syste(...)onary [47]** |  **1000** |     **?** | **22.732 ns** | **0.1370 ns** | **0.1281 ns** | **0.0010** |      **24 B** |
-|    TryGetExistingValue | Syste(...)onary [47] |  1000 |     ? | 22.332 ns | 0.1295 ns | 0.1081 ns | 0.0010 |      24 B |
-|                    **Add** | **Syste(...)onary [47]** |     **?** |  **1000** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
-|                    Add | Syste(...)onary [47] |     ? |  1000 |        NA |        NA |        NA |      - |         - |
-|     AddBySquareBracket | Syste(...)onary [47] |     ? |  1000 | 33.551 ns | 0.4887 ns | 0.4571 ns | 0.0019 |      48 B |
-|     AddBySquareBracket | Syste(...)onary [47] |     ? |  1000 | 33.908 ns | 0.3999 ns | 0.3740 ns | 0.0019 |      48 B |
-|                 Update | Syste(...)onary [47] |     ? |  1000 | 33.274 ns | 0.3912 ns | 0.3659 ns | 0.0019 |      48 B |
-|                 Update | Syste(...)onary [47] |     ? |  1000 | 34.422 ns | 0.1735 ns | 0.1623 ns | 0.0019 |      48 B |
-| TryGetNonExistingValue | Syste(...)onary [47] |     ? |  1000 | 14.471 ns | 0.2257 ns | 0.2001 ns | 0.0010 |      24 B |
-| TryGetNonExistingValue | Syste(...)onary [47] |     ? |  1000 | 16.011 ns | 0.2281 ns | 0.2134 ns | 0.0010 |      24 B |
-|         RemoveExisting | Syste(...)onary [47] |     ? |  1000 | 16.270 ns | 0.1328 ns | 0.1242 ns | 0.0010 |      24 B |
-|         RemoveExisting | Syste(...)onary [47] |     ? |  1000 | 18.846 ns | 0.1624 ns | 0.1519 ns | 0.0010 |      24 B |
-|      RemoveNonExisting | Syste(...)onary [47] |     ? |  1000 | 16.409 ns | 0.1922 ns | 0.1798 ns | 0.0010 |      24 B |
-|      RemoveNonExisting | Syste(...)onary [47] |     ? |  1000 | 16.202 ns | 0.1816 ns | 0.1699 ns | 0.0010 |      24 B |
-|    **TryGetExistingValue** | **Syste(...)onary [47]** | **10000** |     **?** | **22.062 ns** | **0.1215 ns** | **0.1137 ns** | **0.0010** |      **24 B** |
-|                    **Add** | **Syste(...)onary [47]** |     **?** | **10000** |        **NA** |        **NA** |        **NA** |      **-** |         **-** |
-|     AddBySquareBracket | Syste(...)onary [47] |     ? | 10000 | 33.646 ns | 0.3673 ns | 0.3436 ns | 0.0019 |      48 B |
-|                 Update | Syste(...)onary [47] |     ? | 10000 | 34.238 ns | 0.3536 ns | 0.3308 ns | 0.0019 |      48 B |
-| TryGetNonExistingValue | Syste(...)onary [47] |     ? | 10000 | 15.597 ns | 0.1073 ns | 0.0951 ns | 0.0010 |      24 B |
-|         RemoveExisting | Syste(...)onary [47] |     ? | 10000 | 15.890 ns | 0.0993 ns | 0.0880 ns | 0.0010 |      24 B |
-|      RemoveNonExisting | Syste(...)onary [47] |     ? | 10000 | 16.243 ns | 0.2321 ns | 0.2171 ns | 0.0010 |      24 B |
+|                 Method |           dictionary |     _ |  next |     Mean |    Error |   StdDev |   Gen0 | Allocated |
+|----------------------- |--------------------- |------ |------ |---------:|---------:|---------:|-------:|----------:|
+|    **TryGetExistingValue** | **Syste(...)onary [47]** |     **0** |     **?** | **10.30 ns** | **0.292 ns** | **0.563 ns** | **0.0009** |      **24 B** |
+|                    **Add** | **Syste(...)onary [47]** |     **?** |     **0** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)onary [47] |     ? |     0 | 33.35 ns | 1.052 ns | 3.101 ns | 0.0018 |      48 B |
+|                 Update | Syste(...)onary [47] |     ? |     0 | 33.82 ns | 0.780 ns | 2.299 ns | 0.0018 |      48 B |
+| TryGetNonExistingValue | Syste(...)onary [47] |     ? |     0 | 11.69 ns | 0.422 ns | 1.244 ns | 0.0009 |      24 B |
+|         RemoveExisting | Syste(...)onary [47] |     ? |     0 | 12.18 ns | 0.323 ns | 0.954 ns | 0.0009 |      24 B |
+|      RemoveNonExisting | Syste(...)onary [47] |     ? |     0 | 12.00 ns | 0.382 ns | 1.120 ns | 0.0009 |      24 B |
+|    **TryGetExistingValue** | **Syste(...)onary [47]** |    **10** |     **?** | **35.25 ns** | **0.787 ns** | **2.060 ns** | **0.0009** |      **24 B** |
+|                    **Add** | **Syste(...)onary [47]** |     **?** |    **10** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)onary [47] |     ? |    10 | 51.51 ns | 1.061 ns | 2.191 ns | 0.0018 |      48 B |
+|                 Update | Syste(...)onary [47] |     ? |    10 | 53.58 ns | 1.143 ns | 3.369 ns | 0.0018 |      48 B |
+| TryGetNonExistingValue | Syste(...)onary [47] |     ? |    10 | 27.50 ns | 0.632 ns | 1.020 ns | 0.0009 |      24 B |
+|         RemoveExisting | Syste(...)onary [47] |     ? |    10 | 37.65 ns | 0.769 ns | 1.735 ns | 0.0009 |      24 B |
+|      RemoveNonExisting | Syste(...)onary [47] |     ? |    10 | 38.49 ns | 0.773 ns | 0.759 ns | 0.0009 |      24 B |
+|    **TryGetExistingValue** | **Syste(...)onary [47]** |    **20** |     **?** | **35.96 ns** | **0.627 ns** | **0.523 ns** | **0.0009** |      **24 B** |
+|                    **Add** | **Syste(...)onary [47]** |     **?** |    **20** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)onary [47] |     ? |    20 | 54.54 ns | 1.138 ns | 2.081 ns | 0.0018 |      48 B |
+|                 Update | Syste(...)onary [47] |     ? |    20 | 55.33 ns | 1.146 ns | 1.947 ns | 0.0018 |      48 B |
+| TryGetNonExistingValue | Syste(...)onary [47] |     ? |    20 | 29.46 ns | 0.669 ns | 1.367 ns | 0.0009 |      24 B |
+|         RemoveExisting | Syste(...)onary [47] |     ? |    20 | 40.67 ns | 0.846 ns | 0.905 ns | 0.0009 |      24 B |
+|      RemoveNonExisting | Syste(...)onary [47] |     ? |    20 | 37.96 ns | 0.798 ns | 1.144 ns | 0.0009 |      24 B |
+|    **TryGetExistingValue** | **Syste(...)onary [47]** |    **40** |     **?** | **36.88 ns** | **0.809 ns** | **0.831 ns** | **0.0009** |      **24 B** |
+|                    **Add** | **Syste(...)onary [47]** |     **?** |    **40** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)onary [47] |     ? |    40 | 51.29 ns | 1.046 ns | 1.205 ns | 0.0018 |      48 B |
+|                 Update | Syste(...)onary [47] |     ? |    40 | 54.08 ns | 1.119 ns | 1.930 ns | 0.0018 |      48 B |
+| TryGetNonExistingValue | Syste(...)onary [47] |     ? |    40 | 28.85 ns | 0.618 ns | 0.548 ns | 0.0009 |      24 B |
+|         RemoveExisting | Syste(...)onary [47] |     ? |    40 | 37.94 ns | 0.750 ns | 0.737 ns | 0.0009 |      24 B |
+|      RemoveNonExisting | Syste(...)onary [47] |     ? |    40 | 37.89 ns | 0.740 ns | 0.693 ns | 0.0009 |      24 B |
+|    **TryGetExistingValue** | **Syste(...)onary [47]** |    **80** |     **?** | **36.86 ns** | **0.784 ns** | **0.805 ns** | **0.0009** |      **24 B** |
+|                    **Add** | **Syste(...)onary [47]** |     **?** |    **80** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)onary [47] |     ? |    80 | 54.33 ns | 1.097 ns | 1.387 ns | 0.0018 |      48 B |
+|                 Update | Syste(...)onary [47] |     ? |    80 | 54.81 ns | 1.138 ns | 3.114 ns | 0.0018 |      48 B |
+| TryGetNonExistingValue | Syste(...)onary [47] |     ? |    80 | 29.21 ns | 0.663 ns | 0.737 ns | 0.0009 |      24 B |
+|         RemoveExisting | Syste(...)onary [47] |     ? |    80 | 37.19 ns | 0.771 ns | 0.722 ns | 0.0009 |      24 B |
+|      RemoveNonExisting | Syste(...)onary [47] |     ? |    80 | 40.04 ns | 0.794 ns | 1.326 ns | 0.0009 |      24 B |
+|    **TryGetExistingValue** | **Syste(...)onary [47]** |   **100** |     **?** | **38.76 ns** | **0.845 ns** | **1.006 ns** | **0.0009** |      **24 B** |
+|                    **Add** | **Syste(...)onary [47]** |     **?** |   **100** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)onary [47] |     ? |   100 | 54.32 ns | 1.023 ns | 1.623 ns | 0.0018 |      48 B |
+|                 Update | Syste(...)onary [47] |     ? |   100 | 56.75 ns | 1.168 ns | 2.464 ns | 0.0018 |      48 B |
+| TryGetNonExistingValue | Syste(...)onary [47] |     ? |   100 | 28.77 ns | 0.656 ns | 1.001 ns | 0.0009 |      24 B |
+|         RemoveExisting | Syste(...)onary [47] |     ? |   100 | 38.28 ns | 0.755 ns | 0.706 ns | 0.0009 |      24 B |
+|      RemoveNonExisting | Syste(...)onary [47] |     ? |   100 | 39.42 ns | 0.833 ns | 1.544 ns | 0.0009 |      24 B |
+|    **TryGetExistingValue** | **Syste(...)onary [47]** |  **1000** |     **?** | **38.92 ns** | **0.866 ns** | **1.126 ns** | **0.0009** |      **24 B** |
+|    TryGetExistingValue | Syste(...)onary [47] |  1000 |     ? | 40.41 ns | 0.891 ns | 1.189 ns | 0.0009 |      24 B |
+|                    **Add** | **Syste(...)onary [47]** |     **?** |  **1000** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|                    Add | Syste(...)onary [47] |     ? |  1000 |       NA |       NA |       NA |      - |         - |
+|     AddBySquareBracket | Syste(...)onary [47] |     ? |  1000 | 53.39 ns | 1.107 ns | 1.275 ns | 0.0018 |      48 B |
+|     AddBySquareBracket | Syste(...)onary [47] |     ? |  1000 | 55.80 ns | 1.159 ns | 1.999 ns | 0.0018 |      48 B |
+|                 Update | Syste(...)onary [47] |     ? |  1000 | 57.55 ns | 1.167 ns | 1.918 ns | 0.0018 |      48 B |
+|                 Update | Syste(...)onary [47] |     ? |  1000 | 53.73 ns | 1.129 ns | 3.128 ns | 0.0018 |      48 B |
+| TryGetNonExistingValue | Syste(...)onary [47] |     ? |  1000 | 28.51 ns | 0.648 ns | 0.908 ns | 0.0009 |      24 B |
+| TryGetNonExistingValue | Syste(...)onary [47] |     ? |  1000 | 28.98 ns | 0.651 ns | 0.824 ns | 0.0009 |      24 B |
+|         RemoveExisting | Syste(...)onary [47] |     ? |  1000 | 40.66 ns | 0.846 ns | 1.213 ns | 0.0009 |      24 B |
+|         RemoveExisting | Syste(...)onary [47] |     ? |  1000 | 40.49 ns | 0.845 ns | 1.340 ns | 0.0009 |      24 B |
+|      RemoveNonExisting | Syste(...)onary [47] |     ? |  1000 | 38.30 ns | 0.811 ns | 1.239 ns | 0.0009 |      24 B |
+|      RemoveNonExisting | Syste(...)onary [47] |     ? |  1000 | 38.63 ns | 0.758 ns | 0.709 ns | 0.0009 |      24 B |
+|    **TryGetExistingValue** | **Syste(...)onary [47]** | **10000** |     **?** | **40.28 ns** | **0.888 ns** | **1.433 ns** | **0.0009** |      **24 B** |
+|                    **Add** | **Syste(...)onary [47]** |     **?** | **10000** |       **NA** |       **NA** |       **NA** |      **-** |         **-** |
+|     AddBySquareBracket | Syste(...)onary [47] |     ? | 10000 | 58.96 ns | 0.924 ns | 0.864 ns | 0.0018 |      48 B |
+|                 Update | Syste(...)onary [47] |     ? | 10000 | 54.59 ns | 1.138 ns | 1.355 ns | 0.0018 |      48 B |
+| TryGetNonExistingValue | Syste(...)onary [47] |     ? | 10000 | 28.78 ns | 0.579 ns | 0.542 ns | 0.0009 |      24 B |
+|         RemoveExisting | Syste(...)onary [47] |     ? | 10000 | 38.44 ns | 0.806 ns | 0.863 ns | 0.0009 |      24 B |
+|      RemoveNonExisting | Syste(...)onary [47] |     ? | 10000 | 43.20 ns | 0.878 ns | 0.821 ns | 0.0009 |      24 B |
 
 Benchmarks with issues:
   HybridDictionaryPerformance.Add: DefaultJob [dictionary=Syste(...)onary [47], next=0]

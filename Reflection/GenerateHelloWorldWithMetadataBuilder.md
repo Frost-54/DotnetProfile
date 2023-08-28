@@ -1,4 +1,4 @@
-c# MethodInfo.Invoke performance
+C# MetadataBuilder performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
@@ -9,9 +9,9 @@ Intel Xeon CPU E5-2673 v4 2.30GHz, 1 CPU, 2 logical and 2 physical cores
 
 
 ```
-|                      Method | Mean | Error |
-|---------------------------- |-----:|------:|
-| ReflectionInvokePerformance |   NA |    NA |
+|                    Method | Mean | Error |
+|-------------------------- |-----:|------:|
+| MetadataBuilderHelloWorld |   NA |    NA |
 
 Benchmarks with issues:
-  ReflectionInvoke.ReflectionInvokePerformance: DefaultJob
+  GenerateHelloWorldWithMetadataBuilder.MetadataBuilderHelloWorld: DefaultJob

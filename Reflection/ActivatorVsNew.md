@@ -2,16 +2,16 @@ c# Activator.CreateInstance vs new performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
+Intel Xeon CPU E5-2673 v4 2.30GHz, 1 CPU, 2 logical and 2 physical cores
 .NET SDK=7.0.400
   [Host]     : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
   DefaultJob : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
 
 
 ```
-|                      Method |       Mean |     Error |    StdDev |   Gen0 | Allocated |
-|---------------------------- |-----------:|----------:|----------:|-------:|----------:|
-|                   NewObject |  0.0293 ns | 0.0002 ns | 0.0001 ns |      - |         - |
-|       ActivatorCreateObject | 15.8843 ns | 0.1313 ns | 0.1164 ns | 0.0010 |      24 B |
-|             NewCustomObject |  0.0311 ns | 0.0004 ns | 0.0004 ns |      - |         - |
-| ActivatorCreateCustomObject | 15.9632 ns | 0.0786 ns | 0.0735 ns | 0.0010 |      24 B |
+|                      Method |       Mean |     Error |    StdDev |     Median |   Gen0 | Allocated |
+|---------------------------- |-----------:|----------:|----------:|-----------:|-------:|----------:|
+|                   NewObject |  0.0090 ns | 0.0172 ns | 0.0218 ns |  0.0000 ns |      - |         - |
+|       ActivatorCreateObject | 18.3007 ns | 0.4027 ns | 1.0538 ns | 18.0397 ns | 0.0009 |      24 B |
+|             NewCustomObject |  0.0578 ns | 0.0324 ns | 0.0533 ns |  0.0480 ns |      - |         - |
+| ActivatorCreateCustomObject | 19.5963 ns | 0.6833 ns | 2.0148 ns | 19.4084 ns | 0.0009 |      24 B |
