@@ -11,4 +11,4 @@ Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 ```
 |      Method |     Mean |    Error |   StdDev |   Gen0 | Allocated |
 |------------ |---------:|---------:|---------:|-------:|----------:|
-| Performance | 10.61 μs | 0.016 μs | 0.015 μs | 0.1678 |    4.2 KB |
+| Performance | 10.52 μs | 0.006 μs | 0.005 μs | 0.1678 |    4.2 KB |

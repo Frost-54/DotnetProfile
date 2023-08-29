@@ -11,8 +11,8 @@ Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 ```
 |                                        Method |     Mean |     Error |    StdDev | Allocated |
 |---------------------------------------------- |---------:|----------:|----------:|----------:|
-|                             TypeofPerformance | 4.448 ns | 0.0007 ns | 0.0006 ns |         - |
-|                            GetTypePerformance | 4.448 ns | 0.0004 ns | 0.0003 ns |         - |
-|                     GetGenericTypePerformance | 4.447 ns | 0.0006 ns | 0.0006 ns |         - |
-| GetGenericTypeWithGenericParameterPerformance | 5.250 ns | 0.0011 ns | 0.0010 ns |         - |
-|                                     GetCached | 1.967 ns | 0.0031 ns | 0.0029 ns |         - |
+|                             TypeofPerformance | 4.446 ns | 0.0009 ns | 0.0008 ns |         - |
+|                            GetTypePerformance | 5.248 ns | 0.0006 ns | 0.0005 ns |         - |
+|                     GetGenericTypePerformance | 4.447 ns | 0.0005 ns | 0.0005 ns |         - |
+| GetGenericTypeWithGenericParameterPerformance | 4.446 ns | 0.0008 ns | 0.0007 ns |         - |
+|                                     GetCached | 1.974 ns | 0.0026 ns | 0.0023 ns |         - |

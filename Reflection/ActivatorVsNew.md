@@ -11,7 +11,7 @@ Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 ```
 |                      Method |       Mean |     Error |    StdDev |   Gen0 | Allocated |
 |---------------------------- |-----------:|----------:|----------:|-------:|----------:|
-|                   NewObject |  0.0312 ns | 0.0005 ns | 0.0005 ns |      - |         - |
-|       ActivatorCreateObject | 17.4778 ns | 0.0202 ns | 0.0179 ns | 0.0010 |      24 B |
-|             NewCustomObject |  0.0307 ns | 0.0003 ns | 0.0003 ns |      - |         - |
-| ActivatorCreateCustomObject | 17.2866 ns | 0.0758 ns | 0.0709 ns | 0.0010 |      24 B |
+|                   NewObject |  0.0292 ns | 0.0003 ns | 0.0002 ns |      - |         - |
+|       ActivatorCreateObject | 15.9872 ns | 0.1096 ns | 0.1025 ns | 0.0010 |      24 B |
+|             NewCustomObject |  0.0315 ns | 0.0009 ns | 0.0008 ns |      - |         - |
+| ActivatorCreateCustomObject | 15.9637 ns | 0.1033 ns | 0.0966 ns | 0.0010 |      24 B |

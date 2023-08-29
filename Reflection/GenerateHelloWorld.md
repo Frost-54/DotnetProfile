@@ -9,11 +9,8 @@ Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 
 
 ```
-|                    Method |         Mean |        Error |       StdDev |   Gen0 |   Gen1 |   Gen2 | Allocated |
-|-------------------------- |-------------:|-------------:|-------------:|-------:|-------:|-------:|----------:|
-| DynamicAssemblyHelloWorld | 424,641.8 ns | 14,704.48 ns | 42,893.67 ns | 6.3477 | 6.3477 | 6.3477 |    5370 B |
-|   DynamicMethodHelloWorld |     427.3 ns |      2.76 ns |      2.45 ns | 0.0353 |      - |      - |     888 B |
-| MetadataBuilderHelloWorld |           NA |           NA |           NA |      - |      - |      - |         - |
-
-Benchmarks with issues:
-  GenerateHelloWorld.MetadataBuilderHelloWorld: DefaultJob
+|                    Method |           Mean |         Error |          StdDev |   Gen0 |   Gen1 |   Gen2 | Allocated |
+|-------------------------- |---------------:|--------------:|----------------:|-------:|-------:|-------:|----------:|
+| DynamicAssemblyHelloWorld |   411,555.4 ns |  12,881.87 ns |    37,372.63 ns | 3.4180 | 3.4180 | 3.4180 |    5558 B |
+|   DynamicMethodHelloWorld |       416.4 ns |       3.30 ns |         3.09 ns | 0.0353 |      - |      - |     888 B |
+| MetadataBuilderHelloWorld | 2,479,467.7 ns | 367,133.46 ns | 1,029,481.59 ns | 2.4414 | 0.4883 |      - |   70056 B |
