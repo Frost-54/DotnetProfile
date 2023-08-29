@@ -2,57 +2,57 @@ C# SortedDictionary performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon CPU E5-2673 v4 2.30GHz, 1 CPU, 2 logical and 2 physical cores
+Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
 .NET SDK=7.0.400
   [Host]     : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
   DefaultJob : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
 
 
 ```
-|                 Method |           dictionary |     _ |  next |       Mean |     Error |     StdDev | Allocated |
-|----------------------- |--------------------- |------ |------ |-----------:|----------:|-----------:|----------:|
-|    **TryGetExistingValue** | **Syste(...)nt32] [72]** |     **0** |     **?** |   **8.975 ns** | **0.2232 ns** |  **0.3668 ns** |         **-** |
-|                    **Add** | **Syste(...)nt32] [72]** |     **?** |     **0** |         **NA** |        **NA** |         **NA** |         **-** |
-|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |     0 |  19.696 ns | 0.3723 ns |  0.3483 ns |         - |
-|                 Update | Syste(...)nt32] [72] |     ? |     0 |  19.509 ns | 0.3597 ns |  0.3365 ns |         - |
-| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |     0 |   8.174 ns | 0.1985 ns |  0.1857 ns |         - |
-|         RemoveExisting | Syste(...)nt32] [72] |     ? |     0 |   7.284 ns | 0.1269 ns |  0.1059 ns |         - |
-|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |     0 |   7.929 ns | 0.1982 ns |  0.3256 ns |         - |
-|    **TryGetExistingValue** | **Syste(...)nt32] [72]** |    **10** |     **?** |  **41.530 ns** | **0.5708 ns** |  **0.4767 ns** |         **-** |
-|                    **Add** | **Syste(...)nt32] [72]** |     **?** |    **10** |         **NA** |        **NA** |         **NA** |         **-** |
-|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |    10 |  67.554 ns | 1.3486 ns |  1.4430 ns |         - |
-|                 Update | Syste(...)nt32] [72] |     ? |    10 |  65.971 ns | 1.3427 ns |  1.3789 ns |         - |
-| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |    10 |  64.433 ns | 0.9975 ns |  0.9330 ns |         - |
-|         RemoveExisting | Syste(...)nt32] [72] |     ? |    10 |  66.949 ns | 1.2172 ns |  1.1386 ns |         - |
-|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |    10 |  80.325 ns | 1.6201 ns |  1.8008 ns |         - |
-|    **TryGetExistingValue** | **Syste(...)nt32] [72]** |   **100** |     **?** |  **69.299 ns** | **0.7748 ns** |  **0.7247 ns** |         **-** |
-|                    **Add** | **Syste(...)nt32] [72]** |     **?** |   **100** |         **NA** |        **NA** |         **NA** |         **-** |
-|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |   100 | 112.570 ns | 2.2476 ns |  3.9951 ns |         - |
-|                 Update | Syste(...)nt32] [72] |     ? |   100 | 103.980 ns | 1.5813 ns |  1.4018 ns |         - |
-| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |   100 | 103.583 ns | 1.9469 ns |  1.8211 ns |         - |
-|         RemoveExisting | Syste(...)nt32] [72] |     ? |   100 | 120.045 ns | 1.7037 ns |  1.5937 ns |         - |
-|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |   100 | 133.137 ns | 2.4664 ns |  2.1864 ns |         - |
-|    **TryGetExistingValue** | **Syste(...)nt32] [72]** |  **1000** |     **?** | **101.831 ns** | **1.9791 ns** |  **1.9437 ns** |         **-** |
-|    TryGetExistingValue | Syste(...)nt32] [72] |  1000 |     ? | 104.532 ns | 2.0808 ns |  3.1144 ns |         - |
-|                    **Add** | **Syste(...)nt32] [72]** |     **?** |  **1000** |         **NA** |        **NA** |         **NA** |         **-** |
-|                    Add | Syste(...)nt32] [72] |     ? |  1000 |         NA |        NA |         NA |         - |
-|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |  1000 | 180.520 ns | 3.2117 ns |  3.0042 ns |         - |
-|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |  1000 | 192.147 ns | 3.8925 ns |  7.6834 ns |         - |
-|                 Update | Syste(...)nt32] [72] |     ? |  1000 | 195.861 ns | 3.9233 ns |  7.8353 ns |         - |
-|                 Update | Syste(...)nt32] [72] |     ? |  1000 | 189.161 ns | 2.4247 ns |  1.8931 ns |         - |
-| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |  1000 | 176.736 ns | 3.5874 ns |  7.0811 ns |         - |
-| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |  1000 | 186.051 ns | 3.6637 ns |  6.3197 ns |         - |
-|         RemoveExisting | Syste(...)nt32] [72] |     ? |  1000 | 217.501 ns | 4.3629 ns |  8.8132 ns |         - |
-|         RemoveExisting | Syste(...)nt32] [72] |     ? |  1000 | 225.395 ns | 4.5410 ns | 10.8799 ns |         - |
-|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |  1000 | 229.184 ns | 4.5424 ns |  6.7989 ns |         - |
-|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |  1000 | 226.006 ns | 4.5042 ns |  7.8888 ns |         - |
-|    **TryGetExistingValue** | **Syste(...)nt32] [72]** | **10000** |     **?** | **166.151 ns** | **3.3833 ns** |  **7.8412 ns** |         **-** |
-|                    **Add** | **Syste(...)nt32] [72]** |     **?** | **10000** |         **NA** |        **NA** |         **NA** |         **-** |
-|     AddBySquareBracket | Syste(...)nt32] [72] |     ? | 10000 | 231.499 ns | 4.6910 ns | 10.3949 ns |         - |
-|                 Update | Syste(...)nt32] [72] |     ? | 10000 | 236.162 ns | 6.7573 ns | 19.7114 ns |         - |
-| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? | 10000 | 200.719 ns | 3.7142 ns |  4.1283 ns |         - |
-|         RemoveExisting | Syste(...)nt32] [72] |     ? | 10000 | 282.471 ns | 5.8210 ns | 17.1635 ns |         - |
-|      RemoveNonExisting | Syste(...)nt32] [72] |     ? | 10000 | 291.314 ns | 5.8579 ns | 10.5631 ns |         - |
+|                 Method |           dictionary |     _ |  next |       Mean |     Error |    StdDev | Allocated |
+|----------------------- |--------------------- |------ |------ |-----------:|----------:|----------:|----------:|
+|    **TryGetExistingValue** | **Syste(...)nt32] [72]** |     **0** |     **?** |   **9.154 ns** | **0.0016 ns** | **0.0015 ns** |         **-** |
+|                    **Add** | **Syste(...)nt32] [72]** |     **?** |     **0** |         **NA** |        **NA** |        **NA** |         **-** |
+|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |     0 |  20.447 ns | 0.1207 ns | 0.1129 ns |         - |
+|                 Update | Syste(...)nt32] [72] |     ? |     0 |  20.655 ns | 0.0895 ns | 0.0837 ns |         - |
+| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |     0 |   9.247 ns | 0.0348 ns | 0.0291 ns |         - |
+|         RemoveExisting | Syste(...)nt32] [72] |     ? |     0 |   9.132 ns | 0.0056 ns | 0.0050 ns |         - |
+|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |     0 |   9.131 ns | 0.0046 ns | 0.0040 ns |         - |
+|    **TryGetExistingValue** | **Syste(...)nt32] [72]** |    **10** |     **?** |  **42.478 ns** | **0.0052 ns** | **0.0043 ns** |         **-** |
+|                    **Add** | **Syste(...)nt32] [72]** |     **?** |    **10** |         **NA** |        **NA** |        **NA** |         **-** |
+|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |    10 |  65.855 ns | 0.1597 ns | 0.1494 ns |         - |
+|                 Update | Syste(...)nt32] [72] |     ? |    10 |  64.407 ns | 0.4555 ns | 0.4261 ns |         - |
+| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |    10 |  65.706 ns | 0.0570 ns | 0.0476 ns |         - |
+|         RemoveExisting | Syste(...)nt32] [72] |     ? |    10 |  61.875 ns | 0.0153 ns | 0.0136 ns |         - |
+|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |    10 |  76.003 ns | 0.0085 ns | 0.0079 ns |         - |
+|    **TryGetExistingValue** | **Syste(...)nt32] [72]** |   **100** |     **?** |  **75.116 ns** | **0.0371 ns** | **0.0347 ns** |         **-** |
+|                    **Add** | **Syste(...)nt32] [72]** |     **?** |   **100** |         **NA** |        **NA** |        **NA** |         **-** |
+|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |   100 | 110.745 ns | 0.0530 ns | 0.0496 ns |         - |
+|                 Update | Syste(...)nt32] [72] |     ? |   100 | 110.925 ns | 0.0426 ns | 0.0377 ns |         - |
+| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |   100 | 110.868 ns | 0.0115 ns | 0.0096 ns |         - |
+|         RemoveExisting | Syste(...)nt32] [72] |     ? |   100 | 115.118 ns | 0.0527 ns | 0.0493 ns |         - |
+|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |   100 | 127.479 ns | 0.0360 ns | 0.0300 ns |         - |
+|    **TryGetExistingValue** | **Syste(...)nt32] [72]** |  **1000** |     **?** | **107.130 ns** | **0.0285 ns** | **0.0267 ns** |         **-** |
+|    TryGetExistingValue | Syste(...)nt32] [72] |  1000 |     ? | 107.731 ns | 0.0180 ns | 0.0160 ns |         - |
+|                    **Add** | **Syste(...)nt32] [72]** |     **?** |  **1000** |         **NA** |        **NA** |        **NA** |         **-** |
+|                    Add | Syste(...)nt32] [72] |     ? |  1000 |         NA |        NA |        NA |         - |
+|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |  1000 | 177.623 ns | 0.0225 ns | 0.0188 ns |         - |
+|     AddBySquareBracket | Syste(...)nt32] [72] |     ? |  1000 | 177.651 ns | 0.0170 ns | 0.0159 ns |         - |
+|                 Update | Syste(...)nt32] [72] |     ? |  1000 | 188.897 ns | 0.0176 ns | 0.0164 ns |         - |
+|                 Update | Syste(...)nt32] [72] |     ? |  1000 | 188.930 ns | 0.0298 ns | 0.0279 ns |         - |
+| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |  1000 | 188.882 ns | 0.0161 ns | 0.0134 ns |         - |
+| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? |  1000 | 188.904 ns | 0.0199 ns | 0.0186 ns |         - |
+|         RemoveExisting | Syste(...)nt32] [72] |     ? |  1000 | 205.744 ns | 0.1971 ns | 0.1747 ns |         - |
+|         RemoveExisting | Syste(...)nt32] [72] |     ? |  1000 | 206.519 ns | 0.0356 ns | 0.0316 ns |         - |
+|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |  1000 | 219.321 ns | 0.0529 ns | 0.0441 ns |         - |
+|      RemoveNonExisting | Syste(...)nt32] [72] |     ? |  1000 | 218.946 ns | 0.1190 ns | 0.1113 ns |         - |
+|    **TryGetExistingValue** | **Syste(...)nt32] [72]** | **10000** |     **?** | **150.401 ns** | **0.0302 ns** | **0.0282 ns** |         **-** |
+|                    **Add** | **Syste(...)nt32] [72]** |     **?** | **10000** |         **NA** |        **NA** |        **NA** |         **-** |
+|     AddBySquareBracket | Syste(...)nt32] [72] |     ? | 10000 | 222.985 ns | 0.1150 ns | 0.1076 ns |         - |
+|                 Update | Syste(...)nt32] [72] |     ? | 10000 | 233.929 ns | 0.0282 ns | 0.0264 ns |         - |
+| TryGetNonExistingValue | Syste(...)nt32] [72] |     ? | 10000 | 233.950 ns | 0.0418 ns | 0.0349 ns |         - |
+|         RemoveExisting | Syste(...)nt32] [72] |     ? | 10000 | 260.172 ns | 0.2762 ns | 0.2584 ns |         - |
+|      RemoveNonExisting | Syste(...)nt32] [72] |     ? | 10000 | 272.575 ns | 0.0894 ns | 0.0836 ns |         - |
 
 Benchmarks with issues:
   SortedDictionaryPerformance.Add: DefaultJob [dictionary=Syste(...)nt32] [72], next=0]
