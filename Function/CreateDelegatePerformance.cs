@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 
 namespace DotnetProfile.Function; 
 
-[BenchmarkClass("Reflection")]
+[BenchmarkClass("Function")]
 [Description("C# MethodInfo.CreateDelegate performance")]
 public class CreateDelegatePerformance {
       private readonly MethodInfo staticMethodInfo = typeof(Helper)
