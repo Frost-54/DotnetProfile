@@ -164,7 +164,7 @@ public class GenerateHelloWorld {
 
         // Create method definition for Program::Main
         var mainMethodDef = metadata.AddMethodDefinition(
-            MethodAttributes.Public | MethodAttributes.Static | MethodAttributes.HideBySig,
+            MethodAttributes.Public | MethodAttributes.Static,
             MethodImplAttributes.IL,
             metadata.GetOrAddString(nameof(SayHi)),
             metadata.GetOrAddBlob(mainSignature),
