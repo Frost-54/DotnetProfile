@@ -11,8 +11,13 @@ public class ActivatorVsNew {
       }
 
       [Benchmark]
-      public void ActivatorCreateObject() {
-            Activator.CreateInstance<object>();
+      public object? ActivatorCreateObjectTypeof() {
+            return Activator.CreateInstance(typeof(object));
+      }
+
+      [Benchmark]
+      public object ActivatorCreateObjectGeneric() {
+            return Activator.CreateInstance<object>();
       }
 
       public class Custom {
@@ -20,12 +25,18 @@ public class ActivatorVsNew {
       }
 
       [Benchmark]
-      public void NewCustomObject() {
-            _ = new Custom();
+      public object NewCustomObject() {
+            return new Custom();
       }
 
       [Benchmark]
-      public void ActivatorCreateCustomObject() {
-            Activator.CreateInstance<Custom>();
+      public object? ActivatorCreateCustomObjectTypeof() {
+            return Activator.CreateInstance(typeof(Custom));
+      }
+      
+
+      [Benchmark]
+      public object ActivatorCreateCustomObjectGeneric() {
+            return Activator.CreateInstance<Custom>();
       }
 }
