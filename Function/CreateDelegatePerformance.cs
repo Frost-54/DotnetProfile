@@ -26,24 +26,22 @@ public class CreateDelegatePerformance {
       private delegate void Hello();
       
       [Benchmark]
-      public void CreateDelegateGeneric() {
-            staticMethodInfo.CreateDelegate<Hello>()();
+      public object CreateDelegateGeneric() {
+            return staticMethodInfo.CreateDelegate<Hello>();
       }
 
       [Benchmark]
-      public void CreateDelegateType() {
-            staticMethodInfo.CreateDelegate(typeof(Hello))
-                  .DynamicInvoke();
+      public object CreateDelegateType() {
+            return staticMethodInfo.CreateDelegate(typeof(Hello));
       }
       
       [Benchmark]
-      public void CreateMemberDelegateGeneric() {
-            methodInfo.CreateDelegate<Hello>(helper)();
+      public object CreateMemberDelegateGeneric() {
+            return methodInfo.CreateDelegate<Hello>(helper);
       }
 
       [Benchmark]
-      public void CreateMemberDelegateType() {
-            methodInfo.CreateDelegate(typeof(Hello), helper)
-                  .DynamicInvoke();
+      public object CreateMemberDelegateType() {
+            return methodInfo.CreateDelegate(typeof(Hello), helper);
       }
 }
