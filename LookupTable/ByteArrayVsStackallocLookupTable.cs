@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 namespace DotnetProfile.LookupTable; 
 
 [Description("C# byte array vs stackalloc byte as lookup table")]
-[BenchmarkClass("Data")]
+[BenchmarkClass("LookupTable")]
 public class ByteArrayVsStackallocLookupTable {
       private char c;
 

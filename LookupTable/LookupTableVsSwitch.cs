@@ -3,7 +3,7 @@ using BenchmarkDotNet.Attributes;
 namespace DotnetProfile.LookupTable; 
 
 [Description("C# switch vs lookup table performance")]
-[BenchmarkClass("Data")]
+[BenchmarkClass("LookupTable")]
 public class LookupTableVsSwitch {
       private char c;
 
