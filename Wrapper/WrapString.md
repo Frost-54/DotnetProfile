@@ -2,30 +2,30 @@ Will wrapping a string in a struct be slower c#
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
-.NET SDK=7.0.400
-  [Host]     : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
-  DefaultJob : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
+AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
+.NET SDK=8.0.100
+  [Host]     : .NET 6.0.25 (6.0.2523.51912), X64 RyuJIT AVX2
+  DefaultJob : .NET 6.0.25 (6.0.2523.51912), X64 RyuJIT AVX2
 
 
 ```
-|                    Method |                  str |              wrapper |          Mean |     Error |    StdDev | Allocated |
-|-------------------------- |--------------------- |--------------------- |--------------:|----------:|----------:|----------:|
-|          **StringComparison** |  **07FB(...)HHDW [100]** |                    **?** |     **0.4377 ns** | **0.0104 ns** | **0.0097 ns** |         **-** |
-|  **StringDictionaryContains** |  **13S9(...)8OQX [100]** |                    **?** |    **40.5695 ns** | **0.0599 ns** | **0.0531 ns** |         **-** |
-|         **StringSetContains** |  **26XW(...)C5T4 [100]** |                    **?** |    **39.5724 ns** | **0.1225 ns** | **0.1146 ns** |         **-** |
-|          **StringComparison** |           **8FC5WENCGR** |                    **?** |     **0.4169 ns** | **0.0051 ns** | **0.0045 ns** |         **-** |
-|  **StringDictionaryContains** | **D8RB(...)S5BT [1000]** |                    **?** |   **371.0414 ns** | **0.0982 ns** | **0.0766 ns** |         **-** |
-|         **StringSetContains** |           **DGANGVK1AZ** |                    **?** |     **9.7753 ns** | **0.0090 ns** | **0.0079 ns** |         **-** |
-|         **WrapperComparison** |                    **?** | **Dotne(...)apper [40]** |     **0.4115 ns** | **0.0057 ns** | **0.0053 ns** |         **-** |
-|         WrapperComparison |                    ? | Dotne(...)apper [40] |     0.4150 ns | 0.0062 ns | 0.0058 ns |         - |
-|         WrapperComparison |                    ? | Dotne(...)apper [40] |     0.6659 ns | 0.0530 ns | 0.0496 ns |         - |
-|        WrapperSetContains |                    ? | Dotne(...)apper [40] |    14.2761 ns | 0.0110 ns | 0.0103 ns |         - |
-|        WrapperSetContains |                    ? | Dotne(...)apper [40] |   108.1519 ns | 0.0105 ns | 0.0082 ns |         - |
-|        WrapperSetContains |                    ? | Dotne(...)apper [40] | 1,067.7988 ns | 0.1591 ns | 0.1328 ns |         - |
-| WrapperDictionaryContains |                    ? | Dotne(...)apper [40] |   109.7045 ns | 0.0134 ns | 0.0112 ns |         - |
-| WrapperDictionaryContains |                    ? | Dotne(...)apper [40] |    15.5759 ns | 0.0049 ns | 0.0041 ns |         - |
-| WrapperDictionaryContains |                    ? | Dotne(...)apper [40] | 1,070.0429 ns | 0.0836 ns | 0.0698 ns |         - |
-|         **StringSetContains** | **JXLC(...)3JYM [1000]** |                    **?** |   **370.4386 ns** | **0.0838 ns** | **0.0700 ns** |         **-** |
-|          **StringComparison** | **PEBY(...)PIV0 [1000]** |                    **?** |     **0.4096 ns** | **0.0024 ns** | **0.0023 ns** |         **-** |
-|  **StringDictionaryContains** |           **Y9ZXZUA13R** |                    **?** |    **10.2743 ns** | **0.0114 ns** | **0.0095 ns** |         **-** |
+|                    Method |              wrapper |                  str |        Mean |     Error |    StdDev | Allocated |
+|-------------------------- |--------------------- |--------------------- |------------:|----------:|----------:|----------:|
+|         **WrapperComparison** | **Dotne(...)apper [40]** |                    **?** |   **0.7609 ns** | **0.0118 ns** | **0.0105 ns** |         **-** |
+|         WrapperComparison | Dotne(...)apper [40] |                    ? |   0.6417 ns | 0.0068 ns | 0.0064 ns |         - |
+|         WrapperComparison | Dotne(...)apper [40] |                    ? |   0.6144 ns | 0.0035 ns | 0.0031 ns |         - |
+|        WrapperSetContains | Dotne(...)apper [40] |                    ? | 775.6001 ns | 0.2495 ns | 0.2212 ns |         - |
+|        WrapperSetContains | Dotne(...)apper [40] |                    ? |  77.9804 ns | 0.0726 ns | 0.0643 ns |         - |
+|        WrapperSetContains | Dotne(...)apper [40] |                    ? |  11.5612 ns | 0.0323 ns | 0.0302 ns |         - |
+| WrapperDictionaryContains | Dotne(...)apper [40] |                    ? |  10.3426 ns | 0.0117 ns | 0.0098 ns |         - |
+| WrapperDictionaryContains | Dotne(...)apper [40] |                    ? |  79.6265 ns | 0.0495 ns | 0.0439 ns |         - |
+| WrapperDictionaryContains | Dotne(...)apper [40] |                    ? | 774.5733 ns | 0.1699 ns | 0.1506 ns |         - |
+|         **StringSetContains** |                    **?** | **EMJO(...)TNV2 [1000]** | **240.3529 ns** | **0.0724 ns** | **0.0642 ns** |         **-** |
+|  **StringDictionaryContains** |                    **?** |  **NBNF(...)OTGV [100]** |  **26.9658 ns** | **0.0542 ns** | **0.0453 ns** |         **-** |
+|          **StringComparison** |                    **?** | **PCNT(...)LFCC [1000]** |   **0.7419 ns** | **0.0170 ns** | **0.0159 ns** |         **-** |
+|         **StringSetContains** |                    **?** |  **QGHZ(...)MLN7 [100]** |  **29.0337 ns** | **0.1434 ns** | **0.1341 ns** |         **-** |
+|          **StringComparison** |                    **?** |           **S8EOVB0KMQ** |   **0.7142 ns** | **0.0139 ns** | **0.0130 ns** |         **-** |
+|  **StringDictionaryContains** |                    **?** |           **SC5V8L1GST** |   **8.2609 ns** | **0.0122 ns** | **0.0102 ns** |         **-** |
+|  **StringDictionaryContains** |                    **?** | **UBTB(...)AX3C [1000]** | **240.8286 ns** | **0.0791 ns** | **0.0618 ns** |         **-** |
+|          **StringComparison** |                    **?** |  **W8CG(...)XY71 [100]** |   **0.6145 ns** | **0.0054 ns** | **0.0048 ns** |         **-** |
+|         **StringSetContains** |                    **?** |           **XV12DE72Z0** |   **9.2020 ns** | **0.0196 ns** | **0.0164 ns** |         **-** |

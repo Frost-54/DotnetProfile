@@ -2,17 +2,17 @@ c# Type.GetMethod performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
-.NET SDK=7.0.400
-  [Host]     : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
-  DefaultJob : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
+AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
+.NET SDK=8.0.100
+  [Host]     : .NET 6.0.25 (6.0.2523.51912), X64 RyuJIT AVX2
+  DefaultJob : .NET 6.0.25 (6.0.2523.51912), X64 RyuJIT AVX2
 
 
 ```
-|                       Method |        Mean |    Error |   StdDev |   Gen0 | Allocated |
-|----------------------------- |------------:|---------:|---------:|-------:|----------:|
-|     GetMethodWithoutOverload |    28.70 ns | 0.051 ns | 0.048 ns |      - |         - |
-|       GetMethodFewOfOverload |   202.75 ns | 0.229 ns | 0.191 ns | 0.0050 |     128 B |
-|      GetMethodALotOfOverload | 1,090.71 ns | 1.211 ns | 1.133 ns | 0.0191 |     504 B |
-|             GetMethodGeneric |    39.41 ns | 0.046 ns | 0.043 ns |      - |         - |
-| GetMethodGenericWithOverload |   681.83 ns | 1.081 ns | 1.011 ns | 0.0181 |     464 B |
+|                       Method |      Mean |     Error |   StdDev |   Gen0 | Allocated |
+|----------------------------- |----------:|----------:|---------:|-------:|----------:|
+|     GetMethodWithoutOverload |  21.18 ns |  0.018 ns | 0.016 ns |      - |         - |
+|       GetMethodFewOfOverload | 148.79 ns |  0.722 ns | 0.675 ns | 0.0014 |     128 B |
+|      GetMethodALotOfOverload | 796.83 ns | 10.639 ns | 9.952 ns | 0.0057 |     504 B |
+|             GetMethodGeneric |  27.83 ns |  0.061 ns | 0.057 ns |      - |         - |
+| GetMethodGenericWithOverload | 515.90 ns |  3.816 ns | 3.569 ns | 0.0048 |     464 B |

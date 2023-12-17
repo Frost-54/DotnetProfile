@@ -2,13 +2,13 @@ C# FieldInfo.GetValue performance
 ``` ini
 
 BenchmarkDotNet=v0.13.5, OS=ubuntu 22.04
-Intel Xeon Platinum 8370C CPU 2.80GHz, 1 CPU, 2 logical and 2 physical cores
-.NET SDK=7.0.400
-  [Host]     : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
-  DefaultJob : .NET 6.0.21 (6.0.2123.36311), X64 RyuJIT AVX2
+AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
+.NET SDK=8.0.100
+  [Host]     : .NET 6.0.25 (6.0.2523.51912), X64 RyuJIT AVX2
+  DefaultJob : .NET 6.0.25 (6.0.2523.51912), X64 RyuJIT AVX2
 
 
 ```
 |   Method |     Mean |    Error |   StdDev |   Gen0 | Allocated |
 |--------- |---------:|---------:|---------:|-------:|----------:|
-| GetValue | 73.17 ns | 0.085 ns | 0.071 ns | 0.0010 |      24 B |
+| GetValue | 57.16 ns | 0.164 ns | 0.146 ns | 0.0002 |      24 B |
