@@ -11,4 +11,4 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 ```
 |   Method |     Mean |    Error |   StdDev |   Gen0 | Allocated |
 |--------- |---------:|---------:|---------:|-------:|----------:|
-| GetValue | 57.16 ns | 0.164 ns | 0.146 ns | 0.0002 |      24 B |
+| GetValue | 57.24 ns | 0.037 ns | 0.031 ns | 0.0002 |      24 B |

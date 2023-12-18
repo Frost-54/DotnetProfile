@@ -11,8 +11,8 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 ```
 |                                        Method |     Mean |     Error |    StdDev | Allocated |
 |---------------------------------------------- |---------:|----------:|----------:|----------:|
-|                             TypeofPerformance | 4.008 ns | 0.0096 ns | 0.0090 ns |         - |
-|                            GetTypePerformance | 4.003 ns | 0.0044 ns | 0.0039 ns |         - |
-|                     GetGenericTypePerformance | 4.010 ns | 0.0113 ns | 0.0106 ns |         - |
-| GetGenericTypeWithGenericParameterPerformance | 4.004 ns | 0.0029 ns | 0.0027 ns |         - |
-|                                     GetCached | 1.565 ns | 0.0020 ns | 0.0018 ns |         - |
+|                             TypeofPerformance | 4.014 ns | 0.0175 ns | 0.0155 ns |         - |
+|                            GetTypePerformance | 4.013 ns | 0.0143 ns | 0.0127 ns |         - |
+|                     GetGenericTypePerformance | 4.010 ns | 0.0100 ns | 0.0094 ns |         - |
+| GetGenericTypeWithGenericParameterPerformance | 4.011 ns | 0.0154 ns | 0.0144 ns |         - |
+|                                     GetCached | 1.571 ns | 0.0048 ns | 0.0044 ns |         - |

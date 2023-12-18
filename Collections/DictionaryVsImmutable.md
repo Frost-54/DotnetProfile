@@ -17,12 +17,12 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 |          **DictionaryPerformance** | **Syste(...)nt32] [66]** |  **1000** |        **NA** |       **NA** |       **NA** |      **-** |         **-** |
 |          DictionaryPerformance | Syste(...)nt32] [66] |  1000 |        NA |       NA |       NA |      - |         - |
 |          **DictionaryPerformance** | **Syste(...)nt32] [66]** | **10000** |        **NA** |       **NA** |       **NA** |      **-** |         **-** |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |     **0** |  **78.22 ns** | **0.159 ns** | **0.149 ns** | **0.0011** |      **96 B** |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |    **10** | **299.26 ns** | **0.644 ns** | **0.571 ns** | **0.0038** |     **320 B** |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |   **100** | **452.25 ns** | **1.898 ns** | **1.775 ns** | **0.0057** |     **488 B** |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |  **1000** | **606.85 ns** | **1.627 ns** | **1.442 ns** | **0.0076** |     **656 B** |
-| ImmutableDictionaryPerformance | Syste(...)nt32] [77] |  1000 | 629.84 ns | 1.055 ns | 0.935 ns | 0.0076 |     656 B |
-| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** | **10000** | **839.87 ns** | **1.997 ns** | **1.868 ns** | **0.0105** |     **880 B** |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |     **0** |  **80.17 ns** | **0.193 ns** | **0.171 ns** | **0.0011** |      **96 B** |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |    **10** | **327.69 ns** | **0.947 ns** | **0.839 ns** | **0.0038** |     **320 B** |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |   **100** | **449.88 ns** | **1.194 ns** | **1.117 ns** | **0.0057** |     **488 B** |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** |  **1000** | **607.19 ns** | **1.582 ns** | **1.480 ns** | **0.0076** |     **656 B** |
+| ImmutableDictionaryPerformance | Syste(...)nt32] [77] |  1000 | 600.65 ns | 2.018 ns | 1.887 ns | 0.0076 |     656 B |
+| **ImmutableDictionaryPerformance** | **Syste(...)nt32] [77]** | **10000** | **844.97 ns** | **1.618 ns** | **1.513 ns** | **0.0105** |     **880 B** |
 
 Benchmarks with issues:
   DictionaryVsImmutable.DictionaryPerformance: DefaultJob [dictionary=Syste(...)nt32] [66], next=0]

@@ -11,7 +11,7 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 ```
 |                      Method |     Mean |   Error |  StdDev |   Gen0 | Allocated |
 |---------------------------- |---------:|--------:|--------:|-------:|----------:|
-|       CreateDelegateGeneric | 223.4 ns | 0.63 ns | 0.56 ns | 0.0007 |      64 B |
-|          CreateDelegateType | 223.2 ns | 0.24 ns | 0.21 ns | 0.0007 |      64 B |
-| CreateMemberDelegateGeneric | 226.5 ns | 0.53 ns | 0.47 ns | 0.0007 |      64 B |
-|    CreateMemberDelegateType | 224.2 ns | 0.70 ns | 0.66 ns | 0.0007 |      64 B |
+|       CreateDelegateGeneric | 223.7 ns | 0.70 ns | 0.66 ns | 0.0007 |      64 B |
+|          CreateDelegateType | 224.3 ns | 0.76 ns | 0.67 ns | 0.0007 |      64 B |
+| CreateMemberDelegateGeneric | 228.2 ns | 0.69 ns | 0.64 ns | 0.0007 |      64 B |
+|    CreateMemberDelegateType | 224.1 ns | 0.37 ns | 0.31 ns | 0.0007 |      64 B |

@@ -9,10 +9,10 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 
 
 ```
-|                       Method |      Mean |     Error |   StdDev |   Gen0 | Allocated |
-|----------------------------- |----------:|----------:|---------:|-------:|----------:|
-|     GetMethodWithoutOverload |  21.18 ns |  0.018 ns | 0.016 ns |      - |         - |
-|       GetMethodFewOfOverload | 148.79 ns |  0.722 ns | 0.675 ns | 0.0014 |     128 B |
-|      GetMethodALotOfOverload | 796.83 ns | 10.639 ns | 9.952 ns | 0.0057 |     504 B |
-|             GetMethodGeneric |  27.83 ns |  0.061 ns | 0.057 ns |      - |         - |
-| GetMethodGenericWithOverload | 515.90 ns |  3.816 ns | 3.569 ns | 0.0048 |     464 B |
+|                       Method |      Mean |    Error |   StdDev |   Gen0 | Allocated |
+|----------------------------- |----------:|---------:|---------:|-------:|----------:|
+|     GetMethodWithoutOverload |  21.30 ns | 0.074 ns | 0.062 ns |      - |         - |
+|       GetMethodFewOfOverload | 161.77 ns | 1.028 ns | 0.859 ns | 0.0014 |     128 B |
+|      GetMethodALotOfOverload | 793.09 ns | 4.415 ns | 4.130 ns | 0.0057 |     504 B |
+|             GetMethodGeneric |  27.91 ns | 0.085 ns | 0.130 ns |      - |         - |
+| GetMethodGenericWithOverload | 549.76 ns | 3.383 ns | 2.999 ns | 0.0048 |     464 B |

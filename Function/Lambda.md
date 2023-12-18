@@ -11,15 +11,15 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 ```
 |                       Method |  n |      Mean |     Error |    StdDev |   Gen0 | Allocated |
 |----------------------------- |--- |----------:|----------:|----------:|-------:|----------:|
-|            **ImmediatelyInvoke** |  **?** |  **1.881 ns** | **0.0041 ns** | **0.0038 ns** |      **-** |         **-** |
-|      StaticImmediatelyInvoke |  ? |  1.880 ns | 0.0054 ns | 0.0047 ns |      - |         - |
-|                     Variable |  ? |  2.192 ns | 0.0081 ns | 0.0076 ns |      - |         - |
-|               VariableStatic |  ? |  2.184 ns | 0.0021 ns | 0.0019 ns |      - |         - |
-|             RepeatedlyCalled |  ? |  8.073 ns | 0.0217 ns | 0.0203 ns |      - |         - |
-|       RepeatedlyCalledStatic |  ? |  8.058 ns | 0.0060 ns | 0.0047 ns |      - |         - |
-|               LambdaDelegate |  ? |  1.873 ns | 0.0009 ns | 0.0007 ns |      - |         - |
-|         StaticLambdaDelegate |  ? |  1.878 ns | 0.0051 ns | 0.0048 ns |      - |         - |
-|               StaticDelegate |  ? | 12.295 ns | 0.1198 ns | 0.1120 ns | 0.0008 |      64 B |
-| **ImmediatelyInvokeWithCapture** | **10** | **15.521 ns** | **0.0686 ns** | **0.0608 ns** | **0.0010** |      **88 B** |
-|                          Sum | 10 |  2.862 ns | 0.0030 ns | 0.0028 ns |      - |         - |
-|                SumWithLambda | 10 |  5.045 ns | 0.0171 ns | 0.0160 ns |      - |         - |
+|            **ImmediatelyInvoke** |  **?** |  **1.880 ns** | **0.0063 ns** | **0.0059 ns** |      **-** |         **-** |
+|      StaticImmediatelyInvoke |  ? |  1.879 ns | 0.0049 ns | 0.0046 ns |      - |         - |
+|                     Variable |  ? |  2.186 ns | 0.0039 ns | 0.0033 ns |      - |         - |
+|               VariableStatic |  ? |  2.189 ns | 0.0081 ns | 0.0076 ns |      - |         - |
+|             RepeatedlyCalled |  ? |  8.690 ns | 0.0163 ns | 0.0144 ns |      - |         - |
+|       RepeatedlyCalledStatic |  ? |  8.072 ns | 0.0165 ns | 0.0147 ns |      - |         - |
+|               LambdaDelegate |  ? |  1.879 ns | 0.0060 ns | 0.0056 ns |      - |         - |
+|         StaticLambdaDelegate |  ? |  1.876 ns | 0.0050 ns | 0.0047 ns |      - |         - |
+|               StaticDelegate |  ? | 12.887 ns | 0.0683 ns | 0.0639 ns | 0.0007 |      64 B |
+| **ImmediatelyInvokeWithCapture** | **10** | **16.645 ns** | **0.1924 ns** | **0.1799 ns** | **0.0010** |      **88 B** |
+|                          Sum | 10 |  2.863 ns | 0.0021 ns | 0.0017 ns |      - |         - |
+|                SumWithLambda | 10 |  5.028 ns | 0.0038 ns | 0.0029 ns |      - |         - |

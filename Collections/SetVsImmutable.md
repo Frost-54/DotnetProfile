@@ -11,63 +11,63 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 ```
 |                        Method |                  set |  next |       Mean |     Error |    StdDev |   Gen0 | Allocated |
 |------------------------------ |--------------------- |------ |-----------:|----------:|----------:|-------:|----------:|
-|                        **SetAdd** | **Syste(...)nt32] [50]** |     **0** |   **3.724 ns** | **0.0071 ns** | **0.0059 ns** |      **-** |         **-** |
-|               SetFindExisting | Syste(...)nt32] [50] |     0 |   2.396 ns | 0.0026 ns | 0.0020 ns |      - |         - |
-|            SetFindNonexisting | Syste(...)nt32] [50] |     0 |   2.378 ns | 0.0032 ns | 0.0025 ns |      - |         - |
-|          SetRemoveNonexisting | Syste(...)nt32] [50] |     0 |   2.072 ns | 0.0079 ns | 0.0070 ns |      - |         - |
-|             SetRemoveExisting | Syste(...)nt32] [50] |     0 |   2.074 ns | 0.0102 ns | 0.0095 ns |      - |         - |
-|                        **SetAdd** | **Syste(...)nt32] [50]** |    **10** |   **3.616 ns** | **0.0025 ns** | **0.0019 ns** |      **-** |         **-** |
-|               SetFindExisting | Syste(...)nt32] [50] |    10 |   3.969 ns | 0.0156 ns | 0.0146 ns |      - |         - |
-|            SetFindNonexisting | Syste(...)nt32] [50] |    10 |   3.122 ns | 0.0125 ns | 0.0117 ns |      - |         - |
-|          SetRemoveNonexisting | Syste(...)nt32] [50] |    10 |   3.620 ns | 0.0123 ns | 0.0115 ns |      - |         - |
-|             SetRemoveExisting | Syste(...)nt32] [50] |    10 |   3.621 ns | 0.0112 ns | 0.0099 ns |      - |         - |
-|                        **SetAdd** | **Syste(...)nt32] [50]** |   **100** |   **3.623 ns** | **0.0111 ns** | **0.0104 ns** |      **-** |         **-** |
-|               SetFindExisting | Syste(...)nt32] [50] |   100 |   3.967 ns | 0.0082 ns | 0.0064 ns |      - |         - |
-|            SetFindNonexisting | Syste(...)nt32] [50] |   100 |   3.122 ns | 0.0139 ns | 0.0130 ns |      - |         - |
-|          SetRemoveNonexisting | Syste(...)nt32] [50] |   100 |   3.624 ns | 0.0115 ns | 0.0108 ns |      - |         - |
-|             SetRemoveExisting | Syste(...)nt32] [50] |   100 |   3.617 ns | 0.0031 ns | 0.0024 ns |      - |         - |
-|                        **SetAdd** | **Syste(...)nt32] [50]** |  **1000** |   **3.627 ns** | **0.0140 ns** | **0.0131 ns** |      **-** |         **-** |
-|                        SetAdd | Syste(...)nt32] [50] |  1000 |   3.624 ns | 0.0085 ns | 0.0075 ns |      - |         - |
-|               SetFindExisting | Syste(...)nt32] [50] |  1000 |   3.986 ns | 0.0157 ns | 0.0140 ns |      - |         - |
-|               SetFindExisting | Syste(...)nt32] [50] |  1000 |   3.958 ns | 0.0147 ns | 0.0137 ns |      - |         - |
-|            SetFindNonexisting | Syste(...)nt32] [50] |  1000 |   3.098 ns | 0.0106 ns | 0.0094 ns |      - |         - |
-|            SetFindNonexisting | Syste(...)nt32] [50] |  1000 |   3.120 ns | 0.0126 ns | 0.0118 ns |      - |         - |
-|          SetRemoveNonexisting | Syste(...)nt32] [50] |  1000 |   3.620 ns | 0.0100 ns | 0.0093 ns |      - |         - |
-|          SetRemoveNonexisting | Syste(...)nt32] [50] |  1000 |   3.620 ns | 0.0078 ns | 0.0069 ns |      - |         - |
-|             SetRemoveExisting | Syste(...)nt32] [50] |  1000 |   3.624 ns | 0.0105 ns | 0.0098 ns |      - |         - |
-|             SetRemoveExisting | Syste(...)nt32] [50] |  1000 |   3.626 ns | 0.0107 ns | 0.0100 ns |      - |         - |
-|                        **SetAdd** | **Syste(...)nt32] [50]** | **10000** |   **3.617 ns** | **0.0030 ns** | **0.0028 ns** |      **-** |         **-** |
-|               SetFindExisting | Syste(...)nt32] [50] | 10000 |   3.951 ns | 0.0150 ns | 0.0133 ns |      - |         - |
-|            SetFindNonexisting | Syste(...)nt32] [50] | 10000 |   3.124 ns | 0.0202 ns | 0.0189 ns |      - |         - |
-|          SetRemoveNonexisting | Syste(...)nt32] [50] | 10000 |   3.622 ns | 0.0110 ns | 0.0103 ns |      - |         - |
-|             SetRemoveExisting | Syste(...)nt32] [50] | 10000 |   3.616 ns | 0.0040 ns | 0.0031 ns |      - |         - |
-|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** |     **0** |  **61.936 ns** | **0.2944 ns** | **0.2610 ns** | **0.0012** |     **104 B** |
-|      ImmutableSetFindExisting | Syste(...)nt32] [61] |     0 |  16.223 ns | 0.0319 ns | 0.0298 ns |      - |         - |
-|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |     0 |  17.066 ns | 0.0251 ns | 0.0210 ns |      - |         - |
-| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |     0 |  24.030 ns | 0.0404 ns | 0.0359 ns |      - |         - |
-|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |     0 |  23.981 ns | 0.0404 ns | 0.0358 ns |      - |         - |
-|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** |    **10** | **223.524 ns** | **0.7568 ns** | **0.6709 ns** | **0.0038** |     **328 B** |
-|      ImmutableSetFindExisting | Syste(...)nt32] [61] |    10 |  23.585 ns | 0.0270 ns | 0.0253 ns |      - |         - |
-|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |    10 |  22.033 ns | 0.0101 ns | 0.0094 ns |      - |         - |
-| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |    10 |  30.319 ns | 0.0532 ns | 0.0498 ns |      - |         - |
-|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |    10 | 158.249 ns | 1.0216 ns | 0.9556 ns | 0.0024 |     216 B |
-|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** |   **100** | **354.658 ns** | **1.9991 ns** | **1.8699 ns** | **0.0057** |     **496 B** |
-|      ImmutableSetFindExisting | Syste(...)nt32] [61] |   100 |  28.527 ns | 0.0883 ns | 0.0826 ns |      - |         - |
-|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |   100 |  26.881 ns | 0.0243 ns | 0.0216 ns |      - |         - |
-| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |   100 |  34.335 ns | 0.0654 ns | 0.0612 ns |      - |         - |
-|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |   100 | 275.157 ns | 0.9984 ns | 0.9339 ns | 0.0043 |     384 B |
-|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** |  **1000** | **474.716 ns** | **2.2374 ns** | **2.0929 ns** | **0.0076** |     **664 B** |
-|               ImmutableSetAdd | Syste(...)nt32] [61] |  1000 | 477.368 ns | 1.6931 ns | 1.5837 ns | 0.0076 |     664 B |
-|      ImmutableSetFindExisting | Syste(...)nt32] [61] |  1000 |  33.863 ns | 0.0411 ns | 0.0385 ns |      - |         - |
-|      ImmutableSetFindExisting | Syste(...)nt32] [61] |  1000 |  33.910 ns | 0.0312 ns | 0.0261 ns |      - |         - |
-|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |  1000 |  32.222 ns | 0.3955 ns | 0.3302 ns |      - |         - |
-|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |  1000 |  33.397 ns | 0.3655 ns | 0.3240 ns |      - |         - |
-| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |  1000 |  39.731 ns | 0.0682 ns | 0.0637 ns |      - |         - |
-| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |  1000 |  39.490 ns | 0.0669 ns | 0.0626 ns |      - |         - |
-|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |  1000 | 396.463 ns | 0.8781 ns | 0.8213 ns | 0.0062 |     552 B |
-|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |  1000 | 406.569 ns | 2.0207 ns | 1.8902 ns | 0.0062 |     552 B |
-|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** | **10000** | **658.998 ns** | **1.8598 ns** | **1.7396 ns** | **0.0105** |     **888 B** |
-|      ImmutableSetFindExisting | Syste(...)nt32] [61] | 10000 |  40.806 ns | 0.0616 ns | 0.0481 ns |      - |         - |
-|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] | 10000 |  39.904 ns | 0.0274 ns | 0.0229 ns |      - |         - |
-| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] | 10000 |  46.739 ns | 0.0365 ns | 0.0324 ns |      - |         - |
-|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] | 10000 | 569.255 ns | 2.3655 ns | 2.2126 ns | 0.0086 |     776 B |
+|                        **SetAdd** | **Syste(...)nt32] [50]** |     **0** |   **3.628 ns** | **0.0138 ns** | **0.0129 ns** |      **-** |         **-** |
+|               SetFindExisting | Syste(...)nt32] [50] |     0 |   2.376 ns | 0.0014 ns | 0.0013 ns |      - |         - |
+|            SetFindNonexisting | Syste(...)nt32] [50] |     0 |   2.378 ns | 0.0019 ns | 0.0018 ns |      - |         - |
+|          SetRemoveNonexisting | Syste(...)nt32] [50] |     0 |   2.069 ns | 0.0015 ns | 0.0012 ns |      - |         - |
+|             SetRemoveExisting | Syste(...)nt32] [50] |     0 |   2.075 ns | 0.0097 ns | 0.0091 ns |      - |         - |
+|                        **SetAdd** | **Syste(...)nt32] [50]** |    **10** |   **3.618 ns** | **0.0025 ns** | **0.0020 ns** |      **-** |         **-** |
+|               SetFindExisting | Syste(...)nt32] [50] |    10 |   3.984 ns | 0.0117 ns | 0.0109 ns |      - |         - |
+|            SetFindNonexisting | Syste(...)nt32] [50] |    10 |   3.117 ns | 0.0114 ns | 0.0107 ns |      - |         - |
+|          SetRemoveNonexisting | Syste(...)nt32] [50] |    10 |   3.614 ns | 0.0022 ns | 0.0017 ns |      - |         - |
+|             SetRemoveExisting | Syste(...)nt32] [50] |    10 |   3.616 ns | 0.0035 ns | 0.0031 ns |      - |         - |
+|                        **SetAdd** | **Syste(...)nt32] [50]** |   **100** |   **3.617 ns** | **0.0034 ns** | **0.0027 ns** |      **-** |         **-** |
+|               SetFindExisting | Syste(...)nt32] [50] |   100 |   3.974 ns | 0.0116 ns | 0.0108 ns |      - |         - |
+|            SetFindNonexisting | Syste(...)nt32] [50] |   100 |   3.122 ns | 0.0122 ns | 0.0115 ns |      - |         - |
+|          SetRemoveNonexisting | Syste(...)nt32] [50] |   100 |   3.614 ns | 0.0018 ns | 0.0014 ns |      - |         - |
+|             SetRemoveExisting | Syste(...)nt32] [50] |   100 |   3.616 ns | 0.0041 ns | 0.0034 ns |      - |         - |
+|                        **SetAdd** | **Syste(...)nt32] [50]** |  **1000** |   **3.625 ns** | **0.0131 ns** | **0.0122 ns** |      **-** |         **-** |
+|                        SetAdd | Syste(...)nt32] [50] |  1000 |   3.625 ns | 0.0135 ns | 0.0126 ns |      - |         - |
+|               SetFindExisting | Syste(...)nt32] [50] |  1000 |   3.979 ns | 0.0140 ns | 0.0131 ns |      - |         - |
+|               SetFindExisting | Syste(...)nt32] [50] |  1000 |   4.330 ns | 0.0067 ns | 0.0052 ns |      - |         - |
+|            SetFindNonexisting | Syste(...)nt32] [50] |  1000 |   3.099 ns | 0.0126 ns | 0.0118 ns |      - |         - |
+|            SetFindNonexisting | Syste(...)nt32] [50] |  1000 |   3.116 ns | 0.0138 ns | 0.0129 ns |      - |         - |
+|          SetRemoveNonexisting | Syste(...)nt32] [50] |  1000 |   3.617 ns | 0.0027 ns | 0.0024 ns |      - |         - |
+|          SetRemoveNonexisting | Syste(...)nt32] [50] |  1000 |   3.620 ns | 0.0112 ns | 0.0104 ns |      - |         - |
+|             SetRemoveExisting | Syste(...)nt32] [50] |  1000 |   3.615 ns | 0.0022 ns | 0.0017 ns |      - |         - |
+|             SetRemoveExisting | Syste(...)nt32] [50] |  1000 |   3.622 ns | 0.0098 ns | 0.0091 ns |      - |         - |
+|                        **SetAdd** | **Syste(...)nt32] [50]** | **10000** |   **3.626 ns** | **0.0121 ns** | **0.0113 ns** |      **-** |         **-** |
+|               SetFindExisting | Syste(...)nt32] [50] | 10000 |   4.012 ns | 0.0088 ns | 0.0068 ns |      - |         - |
+|            SetFindNonexisting | Syste(...)nt32] [50] | 10000 |   3.117 ns | 0.0118 ns | 0.0110 ns |      - |         - |
+|          SetRemoveNonexisting | Syste(...)nt32] [50] | 10000 |   3.616 ns | 0.0048 ns | 0.0038 ns |      - |         - |
+|             SetRemoveExisting | Syste(...)nt32] [50] | 10000 |   3.624 ns | 0.0105 ns | 0.0098 ns |      - |         - |
+|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** |     **0** |  **62.278 ns** | **0.2866 ns** | **0.2238 ns** | **0.0012** |     **104 B** |
+|      ImmutableSetFindExisting | Syste(...)nt32] [61] |     0 |  16.162 ns | 0.0049 ns | 0.0041 ns |      - |         - |
+|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |     0 |  16.303 ns | 0.0295 ns | 0.0276 ns |      - |         - |
+| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |     0 |  24.047 ns | 0.0851 ns | 0.0754 ns |      - |         - |
+|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |     0 |  25.616 ns | 0.0240 ns | 0.0200 ns |      - |         - |
+|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** |    **10** | **225.118 ns** | **0.5473 ns** | **0.4852 ns** | **0.0038** |     **328 B** |
+|      ImmutableSetFindExisting | Syste(...)nt32] [61] |    10 |  23.504 ns | 0.0257 ns | 0.0240 ns |      - |         - |
+|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |    10 |  22.038 ns | 0.0246 ns | 0.0230 ns |      - |         - |
+| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |    10 |  30.369 ns | 0.0337 ns | 0.0316 ns |      - |         - |
+|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |    10 | 159.928 ns | 0.8257 ns | 0.7723 ns | 0.0024 |     216 B |
+|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** |   **100** | **357.641 ns** | **1.4462 ns** | **1.3528 ns** | **0.0057** |     **496 B** |
+|      ImmutableSetFindExisting | Syste(...)nt32] [61] |   100 |  28.589 ns | 0.0843 ns | 0.0789 ns |      - |         - |
+|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |   100 |  26.662 ns | 0.0097 ns | 0.0086 ns |      - |         - |
+| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |   100 |  34.528 ns | 0.0788 ns | 0.0699 ns |      - |         - |
+|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |   100 | 274.865 ns | 0.9019 ns | 0.7995 ns | 0.0043 |     384 B |
+|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** |  **1000** | **477.656 ns** | **1.6429 ns** | **1.5368 ns** | **0.0076** |     **664 B** |
+|               ImmutableSetAdd | Syste(...)nt32] [61] |  1000 | 477.203 ns | 1.4622 ns | 1.1416 ns | 0.0076 |     664 B |
+|      ImmutableSetFindExisting | Syste(...)nt32] [61] |  1000 |  34.681 ns | 0.0388 ns | 0.0363 ns |      - |         - |
+|      ImmutableSetFindExisting | Syste(...)nt32] [61] |  1000 |  34.013 ns | 0.0616 ns | 0.0546 ns |      - |         - |
+|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |  1000 |  32.118 ns | 0.2180 ns | 0.1933 ns |      - |         - |
+|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] |  1000 |  32.102 ns | 0.0346 ns | 0.0323 ns |      - |         - |
+| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |  1000 |  40.190 ns | 0.0510 ns | 0.0477 ns |      - |         - |
+| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] |  1000 |  40.053 ns | 0.0346 ns | 0.0306 ns |      - |         - |
+|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |  1000 | 399.210 ns | 1.3026 ns | 1.0877 ns | 0.0062 |     552 B |
+|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] |  1000 | 396.119 ns | 1.0400 ns | 0.9220 ns | 0.0062 |     552 B |
+|               **ImmutableSetAdd** | **Syste(...)nt32] [61]** | **10000** | **661.015 ns** | **3.0805 ns** | **2.8815 ns** | **0.0105** |     **888 B** |
+|      ImmutableSetFindExisting | Syste(...)nt32] [61] | 10000 |  40.718 ns | 0.0449 ns | 0.0351 ns |      - |         - |
+|   ImmutableSetFindNonexisting | Syste(...)nt32] [61] | 10000 |  39.148 ns | 0.0889 ns | 0.0742 ns |      - |         - |
+| ImmutableSetRemoveNonexisting | Syste(...)nt32] [61] | 10000 |  46.347 ns | 0.0512 ns | 0.0479 ns |      - |         - |
+|    ImmutableSetRemoveExisting | Syste(...)nt32] [61] | 10000 | 571.150 ns | 1.6200 ns | 1.3528 ns | 0.0086 |     776 B |

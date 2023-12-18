@@ -11,8 +11,8 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 ```
 |                    Method |         Mean |       Error |      StdDev |   Gen0 |   Gen1 |   Gen2 | Allocated |
 |-------------------------- |-------------:|------------:|------------:|-------:|-------:|-------:|----------:|
-| DynamicAssemblyHelloWorld | 333,461.1 ns | 6,418.13 ns | 5,010.86 ns | 1.9531 | 1.9531 | 1.9531 |    5363 B |
-|   DynamicMethodHelloWorld |     310.2 ns |     0.72 ns |     0.68 ns | 0.0105 |      - |      - |     888 B |
+| DynamicAssemblyHelloWorld | 334,730.9 ns | 5,631.02 ns | 6,484.69 ns | 1.9531 | 1.9531 | 1.9531 |    5304 B |
+|   DynamicMethodHelloWorld |     317.3 ns |     2.06 ns |     1.92 ns | 0.0105 |      - |      - |     888 B |
 | MetadataBuilderHelloWorld |           NA |          NA |          NA |      - |      - |      - |         - |
 
 Benchmarks with issues:

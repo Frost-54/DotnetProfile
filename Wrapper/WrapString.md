@@ -9,23 +9,23 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 
 
 ```
-|                    Method |              wrapper |                  str |        Mean |     Error |    StdDev | Allocated |
+|                    Method |                  str |              wrapper |        Mean |     Error |    StdDev | Allocated |
 |-------------------------- |--------------------- |--------------------- |------------:|----------:|----------:|----------:|
-|         **WrapperComparison** | **Dotne(...)apper [40]** |                    **?** |   **0.7609 ns** | **0.0118 ns** | **0.0105 ns** |         **-** |
-|         WrapperComparison | Dotne(...)apper [40] |                    ? |   0.6417 ns | 0.0068 ns | 0.0064 ns |         - |
-|         WrapperComparison | Dotne(...)apper [40] |                    ? |   0.6144 ns | 0.0035 ns | 0.0031 ns |         - |
-|        WrapperSetContains | Dotne(...)apper [40] |                    ? | 775.6001 ns | 0.2495 ns | 0.2212 ns |         - |
-|        WrapperSetContains | Dotne(...)apper [40] |                    ? |  77.9804 ns | 0.0726 ns | 0.0643 ns |         - |
-|        WrapperSetContains | Dotne(...)apper [40] |                    ? |  11.5612 ns | 0.0323 ns | 0.0302 ns |         - |
-| WrapperDictionaryContains | Dotne(...)apper [40] |                    ? |  10.3426 ns | 0.0117 ns | 0.0098 ns |         - |
-| WrapperDictionaryContains | Dotne(...)apper [40] |                    ? |  79.6265 ns | 0.0495 ns | 0.0439 ns |         - |
-| WrapperDictionaryContains | Dotne(...)apper [40] |                    ? | 774.5733 ns | 0.1699 ns | 0.1506 ns |         - |
-|         **StringSetContains** |                    **?** | **EMJO(...)TNV2 [1000]** | **240.3529 ns** | **0.0724 ns** | **0.0642 ns** |         **-** |
-|  **StringDictionaryContains** |                    **?** |  **NBNF(...)OTGV [100]** |  **26.9658 ns** | **0.0542 ns** | **0.0453 ns** |         **-** |
-|          **StringComparison** |                    **?** | **PCNT(...)LFCC [1000]** |   **0.7419 ns** | **0.0170 ns** | **0.0159 ns** |         **-** |
-|         **StringSetContains** |                    **?** |  **QGHZ(...)MLN7 [100]** |  **29.0337 ns** | **0.1434 ns** | **0.1341 ns** |         **-** |
-|          **StringComparison** |                    **?** |           **S8EOVB0KMQ** |   **0.7142 ns** | **0.0139 ns** | **0.0130 ns** |         **-** |
-|  **StringDictionaryContains** |                    **?** |           **SC5V8L1GST** |   **8.2609 ns** | **0.0122 ns** | **0.0102 ns** |         **-** |
-|  **StringDictionaryContains** |                    **?** | **UBTB(...)AX3C [1000]** | **240.8286 ns** | **0.0791 ns** | **0.0618 ns** |         **-** |
-|          **StringComparison** |                    **?** |  **W8CG(...)XY71 [100]** |   **0.6145 ns** | **0.0054 ns** | **0.0048 ns** |         **-** |
-|         **StringSetContains** |                    **?** |           **XV12DE72Z0** |   **9.2020 ns** | **0.0196 ns** | **0.0164 ns** |         **-** |
+|  **StringDictionaryContains** | **80GR(...)2067 [1000]** |                    **?** | **241.3521 ns** | **0.7487 ns** | **0.6637 ns** |         **-** |
+|          **StringComparison** |           **BC63NGKWNJ** |                    **?** |   **0.6246 ns** | **0.0099 ns** | **0.0093 ns** |         **-** |
+|         **StringSetContains** |  **DP59(...)I3UF [100]** |                    **?** |  **26.7579 ns** | **0.0975 ns** | **0.0912 ns** |         **-** |
+|          **StringComparison** | **DQ1K(...)N4Y3 [1000]** |                    **?** |   **0.7254 ns** | **0.0218 ns** | **0.0182 ns** |         **-** |
+|         **StringSetContains** | **DWTM(...)PIAM [1000]** |                    **?** | **243.1116 ns** | **0.3427 ns** | **0.3205 ns** |         **-** |
+|         **WrapperComparison** |                    **?** | **Dotne(...)apper [40]** |   **0.6408 ns** | **0.0088 ns** | **0.0082 ns** |         **-** |
+|         WrapperComparison |                    ? | Dotne(...)apper [40] |   0.6195 ns | 0.0092 ns | 0.0077 ns |         - |
+|         WrapperComparison |                    ? | Dotne(...)apper [40] |   0.6974 ns | 0.0299 ns | 0.0280 ns |         - |
+|        WrapperSetContains |                    ? | Dotne(...)apper [40] | 777.6032 ns | 0.1895 ns | 0.1680 ns |         - |
+|        WrapperSetContains |                    ? | Dotne(...)apper [40] |  10.2503 ns | 0.0119 ns | 0.0106 ns |         - |
+|        WrapperSetContains |                    ? | Dotne(...)apper [40] |  79.4401 ns | 0.0255 ns | 0.0213 ns |         - |
+| WrapperDictionaryContains |                    ? | Dotne(...)apper [40] |  79.0112 ns | 0.0384 ns | 0.0321 ns |         - |
+| WrapperDictionaryContains |                    ? | Dotne(...)apper [40] |  10.3593 ns | 0.0329 ns | 0.0308 ns |         - |
+| WrapperDictionaryContains |                    ? | Dotne(...)apper [40] | 775.5604 ns | 0.2167 ns | 0.1921 ns |         - |
+|  **StringDictionaryContains** |  **JEIM(...)ZHZB [100]** |                    **?** |  **31.3988 ns** | **0.0972 ns** | **0.0862 ns** |         **-** |
+|  **StringDictionaryContains** |           **K4VRYLD4BQ** |                    **?** |   **9.1853 ns** | **0.0041 ns** | **0.0034 ns** |         **-** |
+|         **StringSetContains** |           **OPAHE821ZQ** |                    **?** |   **7.3549 ns** | **0.0310 ns** | **0.0290 ns** |         **-** |
+|          **StringComparison** |  **UQ7B(...)71YR [100]** |                    **?** |   **0.7211 ns** | **0.0134 ns** | **0.0119 ns** |         **-** |

@@ -11,5 +11,5 @@ AMD EPYC 7763, 1 CPU, 4 logical and 2 physical cores
 ```
 |        Method |        Mean |     Error |    StdDev | Allocated |
 |-------------- |------------:|----------:|----------:|----------:|
-| DynamicInvoke | 123.6086 ns | 0.8387 ns | 0.7846 ns |         - |
-|          Call |   0.6433 ns | 0.0071 ns | 0.0066 ns |         - |
+| DynamicInvoke | 122.9565 ns | 0.2368 ns | 0.2215 ns |         - |
+|          Call |   0.6416 ns | 0.0052 ns | 0.0049 ns |         - |
